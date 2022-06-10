@@ -1,14 +1,12 @@
 # Welcome to SSX-Research
 
-Here we document the data structure of SSX game's files, and interesting facts about the development.
-This could be anything from models, textures, audio, and more.
+Documentation of SSX data structure and other interesting information.
+This includes anything from models, textures, audio, and more.
 
-Jump right into the [Wiki](https://github.com/Linkz64/SSX-Research/wiki) to see our discoveries.
+Jump straight to the [Wiki](https://github.com/Linkz64/SSX-Research/wiki)
 
-![](spline.png)
+Collaborations are welcome.
 
-![](hex.png)
+![](Media/patches.png)
 
-
-
-
+![](Media/spline.png)
