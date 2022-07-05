@@ -1,5 +1,92 @@
 - Contents:
+    - [MPF File (PS2 Models)](#mpf-file-ps2-models)
     - [MXF File (Xbox Models)](#mxf-file-xbox-models)
+
+
+<br>
+
+
+***
+
+
+<br>
+
+# MPF File (PS2 Models)
+## Overview
+An **MPF** file contains model names, bones, UV maps, normals, vertices and other model data. <br>
+Used for boards, characters and accessories.
+
+_TODO: Contents tree_
+
+<br>
+
+
+## Structure
+
+### File Header
+Section 0 - Bytes[12]
+| Offset | Type   | Description                          | Key             |
+|--------|--------|--------------------------------------|-----------------|
+| 0x00   | UInt32 | Unknown (Possibly version or magic)  |                 |
+| 0x04   | Int16  | Count of Models                      | `mdlCount`      |
+| 0x06   | Int16  | Offset of model list                 |                 |
+| 0x08   | UInt32 | Offset of first/root model           | `mdlRootOffset` |
+
+
+<br>
+
+
+### Model Header
+Section 1 - Bytes[]
+| Offset | Type      | Description                                                | Key         | Rel             |
+|--------|-----------|------------------------------------------------------------|-------------|-----------------|
+| 0x00   | Bytes[16] | Name of model (ASCII string with a max length of 16 bytes) | `mdlName`   |                 |
+| 0x0C   | UInt32    | Offset of model                                            | `mdlOffset` | `mdlRootOffset` |
+| 0x10   | UInt32    | Size of model in bytes                                     |             |                 |
+| 0x14   | UInt32    | Offset of Model data start                                 |             | `mdlOffset`     |
+| 0x18   | UInt32    | Offset of Bone weight/extra                                |             | `mdlOffset`     |
+| 0x1C   | UInt32    | Offset of some unknown data                                |             | `mdlOffset`     |
+| 0x20   | UInt32    | Offset of Triangle Strip data                              |             | `mdlOffset`     |
+| 0x24   | UInt32    | Unknown                                                    |             |                 |
+| 0x28   | UInt32    | Offset of Bone weight/extra                                |             | `mdlOffset`     |
+| 0x2C   | UInt32    | Offset of Number list reference                            |             | `mdlOffset`     |
+| 0x30   | UInt32    | Offset of Bone weight/extra                                |             | `mdlOffset`     |
+| 0x34   | UInt32    | Unknown                                                    |             |                 |
+| 0x38   | UInt32    | Unknown                                                    |             |                 |
+| 0x3C   | UInt16    | Unknown (Count?)                                           |             |                 |
+| 0x3E   | UInt16    | Unknown (Count?)                                           |             |                 |
+| 0x40   | UInt16    | Count of the Bone weight/extra sections                    |             |                 |
+| 0x42   | UInt16    | Count of Internal Meshes                                   |             |                 |
+| 0x44   | UInt16    | Unknown                                                    |             |                 |
+| 0x46   | UInt16    | Count of Bones                                             |             |                 |
+| 0x48   | Bytes[8]  | Unknown (Filler)                                           |             |                 |
+
+
+
+
+
+<br>
+
+
+***
+
+
+<br>
+
+
+
+**End of MPF info**
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
 
 
 <br>
