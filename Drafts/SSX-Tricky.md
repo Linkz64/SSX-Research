@@ -23,13 +23,17 @@ _TODO: Contents tree_
 
 ## Structure
 
+
+The file structure was reversed by [kris2ffer](https://github.com/kris2ffer). You can find their C# struct [here](https://github.com/Kris2ffer/SSX-3D/blob/ps2-model/ssx3-ps2-model.cs).
+
+
 ### File Header
 Section 0 - Bytes[12]
 | Offset | Type   | Description                          | Key             |
 |--------|--------|--------------------------------------|-----------------|
 | 0x00   | UInt32 | Unknown (Possibly version or magic)  |                 |
 | 0x04   | Int16  | Count of Models                      | `mdlCount`      |
-| 0x06   | Int16  | Offset of model list                 |                 |
+| 0x06   | Int16  | Offset of Model Header list          |                 |
 | 0x08   | UInt32 | Offset of first/root model           | `mdlRootOffset` |
 
 
@@ -62,6 +66,207 @@ Section 1 - Bytes[]
 | 0x48   | Bytes[8]  | Unknown (Filler)                                           |             |                 |
 
 
+<br>
+
+
+### Model
+
+- Bone weight headers
+- Bone weights
+- Number list references
+- Unknown list
+- Unknown data
+- Internal mesh references
+- Internal meshes
+- bytes[32] (footer)
+
+
+<br>
+
+
+### Bone/Skeleton
+
+
+<br>
+
+
+### Bone Weight Header
+| Offset | Type   | Description                | Key | Rel |
+|--------|--------|----------------------------|-----|-----|
+| 0x00   | UInt32 | Length of array/list       |     |     |
+| 0x04   | UInt32 | Offset to Bone weight list |     | `?` |
+| 0x08   | UInt32 | Unknown (Filler)           |     |     |
+
+
+<br>
+
+
+### Bone Weight
+| Offset | Type   | Description            | Key | Rel |
+|--------|--------|------------------------|-----|-----|
+| 0x00   | UInt32 | Bone weight (0 to 100) |     |     |
+| 0x02   | UInt32 | Bone ID                |     |     |
+| 0x03   | UInt32 | Unknown                |     |     |
+
+
+<br>
+
+
+### Number List Ref
+| Offset | Type   | Description                | Key | Rel |
+|--------|--------|----------------------------|-----|-----|
+| 0x00   | UInt32 | Count                      |     |     |
+| 0x04   | UInt32 | Offset of Number list      |     | `?` |
+
+
+<br>
+
+
+### Unknown Data
+| Offset | Type   | Description                                                  | Key | Rel |
+|--------|--------|--------------------------------------------------------------|-----|-----|
+| 0x00   | UInt32 | Unknown (Always 1)                                           |     |     |
+| 0x04   | UInt32 | Unknown (3 with one internal mesh, 4 with 2 internal meshes) |     | `?` |
+| 0x08   | UInt32 | Unknown (Always -1)                                          |     |     |
+
+
+<br>
+
+
+### Internal Mesh refs
+| Offset | Type   | Description                                                  | Key | Rel |
+|--------|--------|--------------------------------------------------------------|-----|-----|
+| 0x00   | UInt32 | Count                                                        |     |     |
+| 0x04   | UInt32 | Offset of internal mesh offset table                         |     | `?` |
+
+
+<br>
+
+
+### Internal Mesh
+
+- model/mesh data
+- bytes[32] (footer)
+
+
+<br>
+
+
+### Offset of internal mesh offset OR Internal mesh header
+
+### Offset of internal mesh
+
+
+<br>
+
+
+### Mesh Data
+
+| Offset | Type      | Description                                                                                                     | Key |
+|--------|-----------|-----------------------------------------------------------------------------------------------------------------|-----|
+| 0x00   | UInt24    | Count of total rows                                                                                             |     |
+| 0x03   | Byte      | Unknown (Always 10)                                                                                             |     |
+| 0x04   | Bytes[12] | Unknown (Filler/Padding)                                                                                        |     |
+| 0x10   | Bytes[13] | Unknown (Always 0x00000000010100010000000000)                                                                   |     |
+| 0x1D   | Byte      | Prefix of count (0x80)                                                                                          |     |
+| 0x1E   | Byte      | Count of total mesh info rows (sum of the amount of mesh info rows and the amount of triangle strip count rows) |     |
+| 0x1F   | Byte      | Suffix of count (0x6c)                                                                                          |     |
+| 0x20   | Bytes[16] | Mesh info row                                                                                                   |     |
+| 0x30   | Bytes[16] | Mesh info row                                                                                                   |     |
+
+- **Triangle Strip Count Row**
+
+The amount of triangle strip rows can be calculated by subtracting 2 from total mesh info count (see 0x1E) <br>
+_First type is assumed to be either UInt32 or Byte_
+| Type      | Description                             |
+|-----------|-----------------------------------------|
+| UInt32    | Count of vertices within triangle strip |
+| Bytes[12] | Padding                                 |
+
+_mesh data continued:_
+
+| Type      | Description                             |
+|-----------|-----------------------------------------|
+| UInt24    | Count of vertices (?)                   |
+| Byte      | Unknown (Always 0x10                    |
+| Bytes[12] | Unknown                                 |
+
+
+### UV Block
+| Type      | Desc                                                    | Key |
+|-----------|---------------------------------------------------------|-----|
+| Bytes[16] | Header of UV Block (0x00100000001000000000002050505050) |     |
+| Bytes[12] | Unknown                                                 |     |
+| Byte      | Unknown                                                 |     |
+| Byte      | Prefix of UV count (0x80)                               |     |
+| Byte      | Count of UVs                                            |     |
+| Byte      | Suffix of UV count (0x6D)                               |     |
+
+**UV**
+
+| Type      | Description                             |
+|-----------|-----------------------------------------|
+| UInt16    | UV map U                                |
+| UInt16    | UV map V                                |
+| UInt16    | UV map U distance                       |
+| UInt16    | UV map V distance                       |
+
+- **Filler - Byte**
+
+## Normal Block
+
+| Type      | Desc                                                        | Key |
+|-----------|-------------------------------------------------------------|-----|
+| Bytes[16] | Header of normal Block (0x00000000008000000000002040404040) |     |
+| Bytes[12] | Unknown                                                     |     |
+| Byte      | Unknown                                                     |     |
+| Byte      | Prefix of Normal Count (0x80)                               |     |
+| Byte      | Count of Normals                                            |     |
+| Byte      | Suffix of Normal count (0x79)                               |     |
+
+**Normal:**
+
+| Type      | Description                   |
+|-----------|-------------------------------|
+| UInt16    | Normal X direction            |
+| UInt16    | Normal Y direction            |
+| UInt16    | Normal Z direction            |
+
+- **Filler - Byte**
+
+### Vertex Block
+| Type      | Desc                                                        | Key |
+|-----------|-------------------------------------------------------------|-----|
+| Bytes[16] | Header of Vertex Block (0x000000000000803F0000002040404040) |     |
+| Bytes[12] | Unknown                                                     |     |
+| Byte      | Unknown                                                     |     |
+| Byte      | Prefix of Vertex count (0x80)                               |     |
+| Byte      | Count of Vertices                                           |     |
+| Byte      | Suffix of Vertex count (0x78)                               |     |
+
+**Vertex:**
+
+| Type      | Description                   |
+|-----------|-------------------------------|
+| Float32   | Location X                    |
+| Float32   | Location Y                    |
+| Float32   | Location Z                    |
+
+- **Filler - Byte**
+
+- **Footer - Bytes[32] 0x......**
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -77,9 +282,33 @@ Section 1 - Bytes[]
 
 **End of MPF info**
 <br>
+
 <br>
+
 <br>
+
 <br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
 <br>
 
 
@@ -115,9 +344,9 @@ Section 0 - Bytes[12]
 | Offset | Type   | Description                          | Key             |
 |--------|--------|--------------------------------------|-----------------|
 | 0x00   | UInt32 | Unknown (Possibly version or magic)  |                 |
-| 0x04   | Int16  | Model count                          | `mdlCount`      |
-| 0x06   | Int16  | Model list offset.                   |                 |
-| 0x08   | UInt32 | Models root offset.                  | `mdlRootOffset` |
+| 0x04   | Int16  | Count of Models                      | `mdlCount`      |
+| 0x06   | Int16  | Offset of Model Header list          |                 |
+| 0x08   | UInt32 | Offset of first/root model           | `mdlRootOffset` |
 
 
 <br>
