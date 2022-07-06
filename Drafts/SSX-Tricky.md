@@ -16,7 +16,6 @@
 An **MPF** file contains model names, bones, UV maps, normals, vertices and other model data. <br>
 Used for boards, characters and accessories.
 
-_TODO: Contents tree_
 
 <br>
 
@@ -50,7 +49,7 @@ Section 1 - Bytes[]
 | 0x14   | UInt32    | Offset of Model data start                                 |             | `mdlOffset`     |
 | 0x18   | UInt32    | Offset of Bone weight/extra                                |             | `mdlOffset`     |
 | 0x1C   | UInt32    | Offset of some unknown data                                |             | `mdlOffset`     |
-| 0x20   | UInt32    | Offset of Triangle Strip data                              |             | `mdlOffset`     |
+| 0x20   | UInt32    | Offset of Mesh Data                                        |             | `mdlOffset`     |
 | 0x24   | UInt32    | Unknown                                                    |             |                 |
 | 0x28   | UInt32    | Offset of Bone weight/extra                                |             | `mdlOffset`     |
 | 0x2C   | UInt32    | Offset of Number list reference                            |             | `mdlOffset`     |
@@ -332,7 +331,6 @@ _mesh data continued:_
 An **MXF** file contains model names, bones, UV maps, normals, vertices and other model data. <br>
 Used for boards, characters and accessories.
 
-_TODO: Contents tree for structure_
 
 <br>
 
