@@ -44,25 +44,26 @@ Section 1 - Bytes[]
 | Offset | Type      | Description                                                | Key         | Rel             |
 |--------|-----------|------------------------------------------------------------|-------------|-----------------|
 | 0x00   | Bytes[16] | Name of model (ASCII string with a max length of 16 bytes) | `mdlName`   |                 |
-| 0x0C   | UInt32    | Offset of model                                            | `mdlOffset` | `mdlRootOffset` |
-| 0x10   | UInt32    | Size of model in bytes                                     |             |                 |
-| 0x14   | UInt32    | Offset of Model data start                                 |             | `mdlOffset`     |
-| 0x18   | UInt32    | Offset of Bone weight/extra                                |             | `mdlOffset`     |
-| 0x1C   | UInt32    | Offset of some unknown data                                |             | `mdlOffset`     |
-| 0x20   | UInt32    | Offset of Mesh Data                                        |             | `mdlOffset`     |
-| 0x24   | UInt32    | Unknown                                                    |             |                 |
-| 0x28   | UInt32    | Offset of Bone weight/extra                                |             | `mdlOffset`     |
-| 0x2C   | UInt32    | Offset of Number list reference                            |             | `mdlOffset`     |
-| 0x30   | UInt32    | Offset of Bone weight/extra                                |             | `mdlOffset`     |
-| 0x34   | UInt32    | Unknown                                                    |             |                 |
+| 0x10   | UInt32    | Offset of model                                            | `mdlOffset` | `mdlRootOffset` |
+| 0x14   | UInt32    | Size of model in bytes                                     |             |                 |
+| 0x18   | UInt32    | Offset of Model data start                                 |             | `mdlOffset`     |
+| 0x1C   | UInt32    | Offset of Bone weight/extra                                |             | `mdlOffset`     |
+| 0x20   | UInt32    | Offset of some unknown data                                |             | `mdlOffset`     |
+| 0x24   | UInt32    | Offset of Mesh Data                                        |             | `mdlOffset`     |
+| 0x28   | UInt32    | Unknown                                                    |             |                 |
+| 0x2C   | UInt32    | Offset of Bone weight/extra                                |             | `mdlOffset`     |
+| 0x30   | UInt32    | Offset of Number list reference                            |             | `mdlOffset`     |
+| 0x34   | UInt32    | Offset of Bone weight/extra                                |             | `mdlOffset`     |
 | 0x38   | UInt32    | Unknown                                                    |             |                 |
-| 0x3C   | UInt16    | Unknown (Count?)                                           |             |                 |
+| 0x3C   | UInt16    | Unknown                                                    |             |                 |
 | 0x3E   | UInt16    | Unknown (Count?)                                           |             |                 |
-| 0x40   | UInt16    | Count of the Bone weight/extra sections                    |             |                 |
-| 0x42   | UInt16    | Count of Internal Meshes                                   |             |                 |
-| 0x44   | UInt16    | Unknown                                                    |             |                 |
-| 0x46   | UInt16    | Count of Bones                                             |             |                 |
-| 0x48   | Bytes[8]  | Unknown (Filler)                                           |             |                 |
+| 0x40   | UInt16    | Unknown (Bone Count?)                                      |             |                 |
+| 0x42   | UInt16    | Count of the Bone weight/extra sections                    |             |                 |
+| 0x44   | UInt16    | Count of Internal Meshes                                   |             |                 |
+| 0x46   | UInt16    | Unknown                                                    |             |                 |
+| 0x48   | UInt16    | Count of Bones?                                            |             |                 |
+| 0x4A   | UInt16    | Unknown                                                    |             |                 |
+| 0x4C   | UInt32    | Filler/Padding                                             |             |                 |
 
 
 <br>
