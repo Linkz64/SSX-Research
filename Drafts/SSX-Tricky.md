@@ -25,22 +25,31 @@ Used for boards, characters and accessories.
 
 The file structure was reversed by [kris2ffer](https://github.com/kris2ffer). You can find their C# struct [here](https://github.com/Kris2ffer/SSX-3D/blob/ps2-model/ssx3-ps2-model.cs).
 
+<br>
+
+**File contents:**
+- [File Header](#file-header)
+    - Model Header List
+        - [Model Header](#model-header)
+    - Model Data List
+        - [Model Data](#model-data)
+<br>
 
 ### File Header
 Section 0 - Bytes[12]
 | Offset | Type   | Description                          | Key             |
 |--------|--------|--------------------------------------|-----------------|
 | 0x00   | UInt32 | Unknown (Possibly version or magic)  |                 |
-| 0x04   | Int16  | Count of Models                      | `mdlCount`      |
-| 0x06   | Int16  | Offset of Model Header list          |                 |
-| 0x08   | UInt32 | Offset of first/root model           | `mdlRootOffset` |
+| 0x04   | Int16  | Count of **Models**                  | `mdlCount`      |
+| 0x06   | Int16  | Offset of **Model Header List**      |                 |
+| 0x08   | UInt32 | Offset of **Model Data List**        | `mdlRootOffset` |
 
 
 <br>
 
 
 ### Model Header
-Section 1 - Bytes[]
+Section 1 - Bytes[128]
 | Offset | Type      | Description                                                | Key         | Rel             |
 |--------|-----------|------------------------------------------------------------|-------------|-----------------|
 | 0x00   | Bytes[16] | Name of model (ASCII string with a max length of 16 bytes) | `mdlName`   |                 |
@@ -58,10 +67,10 @@ Section 1 - Bytes[]
 | 0x3C   | UInt16    | Unknown                                                    |             |                 |
 | 0x3E   | UInt16    | Unknown (Count?)                                           |             |                 |
 | 0x40   | UInt16    | Unknown (Bone Count?)                                      |             |                 |
-| 0x42   | UInt16    | Count of the Bone weight/extra sections                    |             |                 |
-| 0x44   | UInt16    | Count of Internal Meshes                                   |             |                 |
+| 0x42   | UInt16    | Count of the **Bone Data**                                 |             | `boneDataCount` |
+| 0x44   | UInt16    | Count of **Unknown Data**                                  |             | `unkDataCount`  |
 | 0x46   | UInt16    | Unknown                                                    |             |                 |
-| 0x48   | UInt16    | Count of Bones?                                            |             |                 |
+| 0x48   | UInt16    | Unknown Count                                              |             |                 |
 | 0x4A   | UInt16    | Unknown                                                    |             |                 |
 | 0x4C   | UInt32    | Filler/Padding                                             |             |                 |
 
@@ -69,23 +78,59 @@ Section 1 - Bytes[]
 <br>
 
 
-### Model
+### Model Data
 
-- Bone weight headers
-- Bone weights
-- Number list references
-- Unknown list
-- Unknown data
-- Internal mesh references
-- Internal meshes
-- bytes[32] (footer)
+| Name                 | Description                                              |
+|----------------------|----------------------------------------------------------|
+| Unknown List         | Contains this(`unkDataCount`) many of **Unknown Data**   |
+| Bone Data List       | Contains this(`boneDataCount`) many of **Bone Data**     |
+| Bone Weight Headers  |                                                          |
+| Number List Ref      |                                                          |
+| Unknown List 1       |                                                          |
+| Unknown Data 1       |                                                          |
+| Internal Mesh Ref    |                                                          |
+| Internal Mesh        |                                                          |
+| Footer               | Bytes[32]                                                |
 
 
 <br>
 
 
-### Bone/Skeleton
+### Unknown Data
 
+| Offset | Type      | Description                                    | Key            |
+|--------|-----------|------------------------------------------------|----------------|
+| 0x00   | Bytes[4]  | Name                                           |                |
+| 0x04   | Bytes[16] | Name/string (0x00202020 is used as placeholder)|                |
+| 0x14   | Float32   | Unknown float value                            |                |
+| 0x18   | Bytes[4]  | Unknown (0x8180803B)                           |                |
+| 0x1C   | Bytes[4]  | Unknown (0x8180803B)                           |                |
+
+
+<br>
+
+
+### Bone Data
+
+| Offset | Type      | Description                                                   | Key            |
+|--------|-----------|---------------------------------------------------------------|----------------|
+| 0x00   | Bytes[16] | Name of Bone (ASCII string with a maximum length of 16 bytes) | `boneName`     |
+| 0x10   | UInt16    | Unknown           (First bone always has 0xFFFF)              |                |
+| 0x12   | UInt16    | ID of Parent Bone (First bone always has 0xFFFF)              | `boneParentID` |
+| 0x14   | UInt16    | Unknown                                                       |                |
+| 0x16   | UInt16    | ID of Bone                                                    | `boneID`       |
+| 0x18   | Float32   | Location X                                                    |                |
+| 0x1C   | Float32   | Location Y                                                    |                |
+| 0x20   | Float32   | Location Z                                                    |                |
+| 0x24   | Float32   | Rotation Euler Radian X                                       |                |
+| 0x28   | Float32   | Rotation Euler Radian Y                                       |                |
+| 0x2C   | Float32   | Rotation Euler Radian Z                                       |                |
+| 0x30   | Float32   | Rotation Euler Radian X                                       |                |
+| 0x34   | Float32   | Rotation Euler Radian Y                                       |                |
+| 0x38   | Float32   | Rotation Euler Radian Z                                       |                |
+| 0x3C   | Bytes[24] | Contains 6 float values with either -1.0 or 1.0               |                |
+
+Location and Rotation is relative to parent bone.
 
 <br>
 
@@ -116,7 +161,7 @@ Section 1 - Bytes[]
 | Offset | Type   | Description                | Key | Rel |
 |--------|--------|----------------------------|-----|-----|
 | 0x00   | UInt32 | Count                      |     |     |
-| 0x04   | UInt32 | Offset of Number list      |     | `?` |
+| 0x04   | UInt32 | Offset of Number list      |     |     |
 
 
 <br>
@@ -126,7 +171,7 @@ Section 1 - Bytes[]
 | Offset | Type   | Description                                                  | Key | Rel |
 |--------|--------|--------------------------------------------------------------|-----|-----|
 | 0x00   | UInt32 | Unknown (Always 1)                                           |     |     |
-| 0x04   | UInt32 | Unknown (3 with one internal mesh, 4 with 2 internal meshes) |     | `?` |
+| 0x04   | UInt32 | Unknown (3 with one internal mesh, 4 with 2 internal meshes) |     |     |
 | 0x08   | UInt32 | Unknown (Always -1)                                          |     |     |
 
 
@@ -137,22 +182,28 @@ Section 1 - Bytes[]
 | Offset | Type   | Description                                                  | Key | Rel |
 |--------|--------|--------------------------------------------------------------|-----|-----|
 | 0x00   | UInt32 | Count                                                        |     |     |
-| 0x04   | UInt32 | Offset of internal mesh offset table                         |     | `?` |
+| 0x04   | UInt32 | Offset of internal mesh offset table                         |     |     |
 
 
 <br>
 
 
+
+
 ### Internal Mesh
 
-- model/mesh data
+- Mesh data
 - bytes[32] (footer)
+
+
 
 
 <br>
 
 
 ### Offset of internal mesh offset OR Internal mesh header
+
+<br>
 
 ### Offset of internal mesh
 
@@ -165,7 +216,7 @@ Section 1 - Bytes[]
 | Offset | Type      | Description                                                                                                     | Key |
 |--------|-----------|-----------------------------------------------------------------------------------------------------------------|-----|
 | 0x00   | UInt24    | Count of total rows                                                                                             |     |
-| 0x03   | Byte      | Unknown (Always 10)                                                                                             |     |
+| 0x03   | Byte      | Size of individual rows (Always 16)                                                                             |     |
 | 0x04   | Bytes[12] | Unknown (Filler/Padding)                                                                                        |     |
 | 0x10   | Bytes[13] | Unknown (Always 0x00000000010100010000000000)                                                                   |     |
 | 0x1D   | Byte      | Prefix of count (0x80)                                                                                          |     |
@@ -180,7 +231,7 @@ The amount of triangle strip rows can be calculated by subtracting 2 from total 
 _First type is assumed to be either UInt32 or Byte_
 | Type      | Description                             |
 |-----------|-----------------------------------------|
-| UInt32    | Count of vertices within triangle strip |
+| UInt32    | Count of vertices                       |
 | Bytes[12] | Padding                                 |
 
 _mesh data continued:_
@@ -188,7 +239,7 @@ _mesh data continued:_
 | Type      | Description                             |
 |-----------|-----------------------------------------|
 | UInt24    | Count of vertices (?)                   |
-| Byte      | Unknown (Always 0x10                    |
+| Byte      | Unknown (Always 16)                     |
 | Bytes[12] | Unknown                                 |
 
 
@@ -206,8 +257,8 @@ _mesh data continued:_
 
 | Type      | Description                             |
 |-----------|-----------------------------------------|
-| UInt16    | UV map U                                |
-| UInt16    | UV map V                                |
+| UInt16    | UV map U    (X translation)             |
+| UInt16    | UV map V    (Y translation)             |
 | UInt16    | UV map U distance                       |
 | UInt16    | UV map V distance                       |
 
