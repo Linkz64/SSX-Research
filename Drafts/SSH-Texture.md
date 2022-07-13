@@ -28,8 +28,12 @@ EA's SSH Texture Files
 | Char[4] | Group       |
 | Char[4] | String?      |
 
+<!-- rewrite this section from #file-formats info -->
+
 ## Texture Entry
+
 ## Entry Texture Types
+
 |    Type (Int8)   |   Description  |
 |----------|----------|
 | 1 | 4-Bit 16 Colour Palette        |
@@ -39,6 +43,9 @@ EA's SSH Texture Files
 | 105 | Metal Bin      |
 | 112 | Long Name      |
 | 130 | 8-bit 256 colors swapped palette RefPack Compressed     |
+
+
+If `(type & 0x80) == 1` the data will be compressed with RefPack.
 
 ### Texture Header
 |    Type   |   Description  |
