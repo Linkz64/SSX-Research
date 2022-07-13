@@ -73,7 +73,7 @@ struct ShapeChunkHeader {
 | 0x20                 | Palette/CLUT                  |
 | 105                  | Metal Bin                     |
 | 0x70                 | Long/Full Name                |
-| 0x85 (`0x5 | 0x80`)  | 8-bit Data, RefPack Compressed|
+| 0x85 (`0x5 OR 0x80`)  | 8-bit Data, RefPack Compressed|
 
 
 If `(type & 0x80) == 1` the data will be compressed with RefPack.
