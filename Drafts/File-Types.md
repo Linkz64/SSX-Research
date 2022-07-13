@@ -1,5 +1,5 @@
 - File Types:
-    - [BIG](Big Archives.md)
+    - [BIG](BIG-Archives.md)
     - [SSH](SSH-Texture.md)
     - [INF](#inf)
     - [DAT](#dat)
