@@ -1,7 +1,9 @@
 ## RefPack
 
 RefPack is a LZSS-like compression algorithm written by Frank Barchard, and used in many EA file formats.
-
+<br>
+[Refpack handler C# by GlitcherOG](https://github.com/GlitcherOG/SSX-PS2-Collection-Modder/blob/main/FileHandlers/RefpackHandler.cs)<br>
+[RefPack C++ by modeco80](https://github.com/SSXModding/bigfile/blob/master/src/bigfile/RefPack.cpp)<br>
 ## Magic
 
 RefPack often manifests itself starting with a magic `0x10FB`.
