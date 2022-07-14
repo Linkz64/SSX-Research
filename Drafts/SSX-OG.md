@@ -3,7 +3,9 @@ SSX Content
 # MPF File (PS2 Models)
 ## Overview
 An **MPF** file contains model names, bones, UV maps, normals, vertices and other model data. <br>
-Used for boards, characters and accessories.
+Used for boards, characters and accessories.<br>
+<br>
+[SSX OG mpf C# handler by GlitcherOG](https://github.com/GlitcherOG/SSX-PS2-Collection-Modder/blob/main/FileHandlers/Models/SSXMPFModelHandler.cs)<br>
 
 Please note hex offsets are currently wrong
 ## Structure
@@ -87,95 +89,53 @@ Section 1 - Bytes[128]
 | 0x03   | UInt32 | Flex Mesh Offset End                |     |     |
 
 
-### ==Everything below here def needs to be revised at a later date as i didnt update it all==
+### ==Headers Need To be Revised==
 
 ## Static Mesh
 ### Mesh Data
++48 Offset
+| Type      | Description                             |
+|-----------|-----------------------------------------|
+| UInt32    | Strip Count                       |
+| UInt32 | Edge Count                                 |
+| UInt32 | Normal Count (Can use used to detect if normals are in the file)                                 |
+| UInt32 | Vertex Count                                 |
 
-| Offset | Type      | Description                                                                                                     | Key |
-|--------|-----------|-----------------------------------------------------------------------------------------------------------------|-----|
-| 0x00   | UInt24    | Count of total rows                                                                                             |     |
-| 0x03   | Byte      | Size of individual rows (Always 16)                                                                             |     |
-| 0x04   | Bytes[12] | Unknown (Filler/Padding)                                                                                        |     |
-| 0x10   | Bytes[13] | Unknown (Always 0x00000000010100010000000000)                                                                   |     |
-| 0x1D   | Byte      | Prefix of count (0x80)                                                                                          |     |
-| 0x1E   | Byte      | Count of total mesh info rows (sum of the amount of mesh info rows and the amount of triangle strip count rows) |     |
-| 0x1F   | Byte      | Suffix of count (0x6c)                                                                                          |     |
-| 0x20   | Bytes[16] | Mesh info row                                                                                                   |     |
-| 0x30   | Bytes[16] | Mesh info row                                                                                                   |     |
-
-- **Triangle Strip Count Row**
-
-The amount of triangle strip rows can be calculated by subtracting 2 from total mesh info count (see 0x1E) <br>
-_First type is assumed to be either UInt32 or Byte_
+#### Triangle Strip Count Row
 | Type      | Description                             |
 |-----------|-----------------------------------------|
 | UInt32    | Count of vertices                       |
 | Bytes[12] | Padding                                 |
-
-_mesh data continued:_
-
-| Type      | Description                             |
-|-----------|-----------------------------------------|
-| UInt24    | Count of vertices (?)                   |
-| Byte      | Unknown (Always 16)                     |
-| Bytes[12] | Unknown                                 |
-
++16 Offset
 
 ### UV Block
-| Type      | Desc                                                    | Key |
-|-----------|---------------------------------------------------------|-----|
-| Bytes[16] | Header of UV Block (0x00100000001000000000002050505050) |     |
-| Bytes[12] | Unknown                                                 |     |
-| Byte      | Unknown                                                 |     |
-| Byte      | Prefix of UV count (0x80)                               |     |
-| Byte      | Count of UVs                                            |     |
-| Byte      | Suffix of UV count (0x6D)                               |     |
++48 Offset
 
-**UV**
-
+#### UV
+Divide By 4096
 | Type      | Description                             |
 |-----------|-----------------------------------------|
 | UInt16    | UV map U    (X translation)             |
 | UInt16    | UV map V    (Y translation)             |
 
-- **Filler - Byte**
+### Normal Block
++48 Offset
 
-## Normal Block
-
-| Type      | Desc                                                        | Key |
-|-----------|-------------------------------------------------------------|-----|
-| Bytes[16] | Header of normal Block (0x00000000008000000000002040404040) |     |
-| Bytes[12] | Unknown                                                     |     |
-| Byte      | Unknown                                                     |     |
-| Byte      | Prefix of Normal Count (0x80)                               |     |
-| Byte      | Count of Normals                                            |     |
-| Byte      | Suffix of Normal count (0x79)                               |     |
-
-**Normal:**
-
+#### Normal
 | Type      | Description                   |
 |-----------|-------------------------------|
 | UInt16    | Normal X direction            |
 | UInt16    | Normal Y direction            |
 | UInt16    | Normal Z direction            |
 
-- **Filler - Byte**
 
-### Vertex Block
-| Type      | Desc                                                        | Key |
-|-----------|-------------------------------------------------------------|-----|
-| Bytes[16] | Header of Vertex Block (0x000000000000803F0000002040404040) |     |
-| Bytes[12] | Unknown                                                     |     |
-| Byte      | Unknown                                                     |     |
-| Byte      | Prefix of Vertex count (0x80)                               |     |
-| Byte      | Count of Vertices                                           |     |
-| Byte      | Suffix of Vertex count (0x78)                               |     |
+### Vertex  Block
++48 Offset
 
-**Vertex:**
-
+#### Vertex
 | Type      | Description                   |
 |-----------|-------------------------------|
 | Float32   | Location X                    |
 | Float32   | Location Y                    |
 | Float32   | Location Z                    |
+
