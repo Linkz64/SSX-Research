@@ -1,38 +1,38 @@
 # SSX 3 Store PS2 (BoltPS2.Dat)
 ## Overview
-This file governs details about the ssx 3 store
-
-Character ID
-0-Moby
-1-Kaori
-2-Arielle
-3-Mac
-4-Zoe
-5-Grommet
-6-Elise
-7-Rocco
-8-Psymon
-9-Deiter
-10-Brodi
-11-Eddie
-12-Jp
-13-Luther
-14-Marisol
-15-Marty
-16-Seeiah
-17-Hiro
-18-Jurgen
-19-luthern
-20-Stretch
-21-Bessy
-22-Bunny
-23-Churchil
-24-Skel
-25-Snowman
-26-Yeti
-27-Unkown Rider
-28-Beaver
-29-Abom
+This file governs details about the ssx 3 store <br>
+<br>
+Character ID<br>
+0-Moby<br>
+1-Kaori<br>
+2-Arielle<br>
+3-Mac<br>
+4-Zoe<br>
+5-Grommet<br>
+6-Elise<br>
+7-Rocco<br>
+8-Psymon<br>
+9-Deiter<br>
+10-Brodi<br>
+11-Eddie<br>
+12-Jp<br>
+13-Luther<br>
+14-Marisol<br>
+15-Marty<br>
+16-Seeiah<br>
+17-Hiro<br>
+18-Jurgen<br>
+19-luthern<br>
+20-Stretch<br>
+21-Bessy<br>
+22-Bunny<br>
+23-Churchil<br>
+24-Skel<br>
+25-Snowman<br>
+26-Yeti<br>
+27-Unkown Rider<br>
+28-Beaver<br>
+29-Abom<br>
 
 ## Item Entries 
 ### Header
