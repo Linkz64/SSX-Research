@@ -106,11 +106,23 @@ Section 1 - Bytes[80]
 
 | Offset | Type      | Description                                                           | Key            |
 |--------|-----------|-----------------------------------------------------------------------|----------------|
-| 0x00   | Bytes[4]  | Name of Material                                                      |                |
-| 0x04   | Bytes[16] | Name/string (parameters?, 0x00202020 is used as placeholder)          |                |
+| 0x00   | Bytes[4]  | Name of main Texture map/file                                         |                |
+| 0x04   | Bytes[4]  | Name/Type of Texture                                                  |                |
+| 0x04   | Bytes[4]  | Name/Type of Texture                                                  |                |
+| 0x04   | Bytes[4]  | Name/Type of Texture                                                  |                |
+| 0x04   | Bytes[4]  | Name/Type of Texture                                                  |                |
 | 0x14   | Float32   | Unknown float value                                                   |                |
-| 0x18   | Bytes[4]  | Unknown (0x8180803B)                                                  |                |
-| 0x1C   | Bytes[4]  | Unknown (0x8180803B)                                                  |                |
+| 0x18   | Float32   | Unknown float value                                                   |                |
+| 0x1C   | Float32   | Unknown float value                                                   |                |
+
+If a slot has 0x00202020 it may be a placeholder
+
+**Texture types:**
+
+- **_b    = Bump/Normal map (Xbox) <br>
+- **_g    = Shadow/Light?
+- �nvr   = Environment/Reflection?
+- envr    = Environment/Reflection? (Xbox)
 
 
 <br>
