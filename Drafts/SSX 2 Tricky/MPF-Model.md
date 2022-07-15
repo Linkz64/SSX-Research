@@ -1,6 +1,8 @@
+# MPF File (PS2 Models)
+
 - Contents:
-    - [MPF File (PS2 Models)](#mpf-file-ps2-models)
-    - [MXF File (Xbox Models)](#mxf-file-xbox-models)
+    - [Overview](#overview)
+    - [Structure](#structure)
 
 
 <br>
@@ -11,8 +13,8 @@
 
 <br>
 
-# MPF File (PS2 Models)
-## Overview
+
+# Overview
 An **MPF** file contains model names, bones, UV maps, normals, vertices and other model data. <br>
 Used for boards, characters and accessories.
 
@@ -20,7 +22,7 @@ Used for boards, characters and accessories.
 <br>
 
 
-## Structure
+# Structure
 
 
 [SSX Tricky mpf GO struct by Erick](https://github.com/Erickson400/TheTrickyModels/blob/main/mpf/MpfStructure.go)<br>
@@ -37,7 +39,7 @@ Used for boards, characters and accessories.
         - [Model Data](#model-data)
 <br>
 
-### File Header
+## File Header
 Section 0 - Bytes[12]
 | Offset | Type   | Description                          | Key                 |
 |--------|--------|--------------------------------------|---------------------|
@@ -52,7 +54,7 @@ Section 0 - Bytes[12]
 <br>
 
 
-### Model Header
+## Model Header
 Section 1 - Bytes[80]
 | Offset | Type      | Description                                                | Key         | Rel                 |
 |--------|-----------|------------------------------------------------------------|-------------|---------------------|
@@ -82,7 +84,7 @@ Section 1 - Bytes[80]
 <br>
 
 
-### Model Data
+## Model Data
 
 | Name                 | Description                                              |
 |----------------------|----------------------------------------------------------|
@@ -100,7 +102,7 @@ Section 1 - Bytes[80]
 <br>
 
 
-### Material Data
+## Material Data
 
 | Offset | Type      | Description                                                           | Key            |
 |--------|-----------|-----------------------------------------------------------------------|----------------|
@@ -114,7 +116,7 @@ Section 1 - Bytes[80]
 <br>
 
 
-### Bone Data
+## Bone Data
 
 | Offset | Type      | Description                                                   | Key            |
 |--------|-----------|---------------------------------------------------------------|----------------|
@@ -139,7 +141,7 @@ Location and Rotation is relative to parent bone.
 <br>
 
 
-### Bone Weight Header
+## Bone Weight Header
 | Offset | Type   | Description                | Key | Rel |
 |--------|--------|----------------------------|-----|-----|
 | 0x00   | UInt32 | Length of array/list       |     |     |
@@ -150,7 +152,7 @@ Location and Rotation is relative to parent bone.
 <br>
 
 
-### Bone Weight
+## Bone Weight
 | Offset | Type   | Description            | Key | Rel |
 |--------|--------|------------------------|-----|-----|
 | 0x00   | UInt32 | Bone weight (0 to 100) |     |     |
@@ -161,7 +163,7 @@ Location and Rotation is relative to parent bone.
 <br>
 
 
-### Number List Ref
+## Number List Ref
 | Offset | Type   | Description                | Key | Rel |
 |--------|--------|----------------------------|-----|-----|
 | 0x00   | UInt32 | Count                      |     |     |
@@ -171,7 +173,7 @@ Location and Rotation is relative to parent bone.
 <br>
 
 
-### Unknown Data
+## Unknown Data
 | Offset | Type   | Description                                                  | Key | Rel |
 |--------|--------|--------------------------------------------------------------|-----|-----|
 | 0x00   | UInt32 | Unknown (Always 1)                                           |     |     |
@@ -182,7 +184,7 @@ Location and Rotation is relative to parent bone.
 <br>
 
 
-### Internal Mesh refs
+## Internal Mesh refs
 | Offset | Type   | Description                                                  | Key | Rel |
 |--------|--------|--------------------------------------------------------------|-----|-----|
 | 0x00   | UInt32 | Count                                                        |     |     |
@@ -194,18 +196,18 @@ Location and Rotation is relative to parent bone.
 
 
 
-### Internal Mesh
+## Internal Mesh
 
 - **Mesh Data**
 
 <br>
 
 
-### Offset of internal mesh offset OR Internal mesh header
+## Offset of internal mesh offset OR Internal mesh header
 
 <br>
 
-### Offset of internal mesh
+## Offset of internal mesh
 
 
 <br>
@@ -217,9 +219,68 @@ Location and Rotation is relative to parent bone.
     ^ 1 row 
     06000096 00000000 00000000 00000000 <br>
     ^ 6 rows
+Test
 )
 
-### Mesh Data
+<!-- THIS IS ALSO A COMMENT
+
+Model Data List[
+    Model Data 1 List [
+        Material Data List[
+            Material 1
+            Material 2
+        ]
+        Bone Data List[
+            Bone 1
+            Bone 2
+        ]
+        Bone Weights List 1[
+
+        ]
+        Bone Weights List 2[
+
+        ]
+        Offsets/Count List[
+            Offset/Count 1 List[
+            ]
+            Offset/Count 1 List[
+            ]
+        ]
+        Mesh Data List[
+            Mesh Data 1 List[
+                Mesh 1
+                Mesh 2
+            ]
+            Mesh Data 2 List[
+                Mesh 1
+                Mesh 2
+            ]
+        ]
+    ]
+]
+
+
+
+There's multiple mesh groups in the mesh section
+
+    Mesh Data List [ # the model's header leads here
+
+      Mesh Data 1 List [ # offset/count section leads here
+            Mesh 1 # mesh info, tristrips, uvs, nrm, vtx
+            Mesh 2
+            etc...
+        ] # footer Hex: 00000000 00000010 00000000 00000014
+
+      Mesh Data 2 List[ # offset/count section leads here
+            Mesh 1
+            etc...
+        ]  # footer Hex: 00000000 00000010 00000000 00000014
+
+Test
+-->
+
+
+## Mesh Data
 
 | Offset | Type      | Description                                                                                                     | Key |
 |--------|-----------|-----------------------------------------------------------------------------------------------------------------|-----|
@@ -257,7 +318,7 @@ _mesh data continued:_
 
 <br>
 
-### UV Block
+## UV Block
 | Type      | Desc                                                           | Key |
 |-----------|----------------------------------------------------------------|-----|
 | Bytes[16] | Header of UV Block (Hex: 00100000 00100000 00000020 50505050)  |     |
@@ -279,7 +340,7 @@ _mesh data continued:_
 
 <br>
 
-### Normal Block
+## Normal Block
 
 | Type      | Desc                                                              | Key |
 |-----------|-------------------------------------------------------------------|-----|
@@ -301,7 +362,7 @@ _mesh data continued:_
 
 <br>
 
-### Vertex Block
+## Vertex Block
 | Type      | Desc                                                              | Key |
 |-----------|-------------------------------------------------------------------|-----|
 | Bytes[16] | Header of Vertex Block (Hex: 00000000 0000803F 00000020 40404040) |     |
@@ -347,178 +408,5 @@ _mesh data continued:_
 
 
 
-**End of MPF info**
+**End of MPF Structure**
 <br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-
-
-
-
-
-
-
-<br>
-
-
-***
-
-
-<br>
-
-
-# MXF File (Xbox Models)
-## Overview
-An **MXF** file contains model names, bones, UV maps, normals, vertices and other model data. <br>
-Used for boards, characters and accessories.
-
-
-<br>
-
-
-## Structure
-
-### File Header
-Section 0 - Bytes[12]
-| Offset | Type   | Description                          | Key             |
-|--------|--------|--------------------------------------|-----------------|
-| 0x00   | UInt32 | Unknown (Possibly version or magic)  |                 |
-| 0x04   | Int16  | Count of Models                      | `mdlCount`      |
-| 0x06   | Int16  | Offset of Model Header list          |                 |
-| 0x08   | UInt32 | Offset of first/root model           | `mdlRootOffset` |
-
-
-<br>
-
-
-### Model Header
-Section 1 - Bytes[396]
-
-The amount of model headers is determined by `mdlCount`
-
-| Offset | Type       | Description                                                     | Key              | Rel             |
-|--------|------------|-----------------------------------------------------------------|------------------|-----------------|
-| 0x00   | Bytes[16]  | Model Name (An ASCII string with a maximum length of 16 bytes)  | `mdlName`        |                 |
-| 0x10   | UInt32     | Offset of Model                                                 | `mdlOffset`      | `mdlRootOffset` | 
-| 0x14   | UInt32     | Size of Model in bytes                                          | `mdlSizeBytes`   |                 |
-| 0x18   | UInt32     | Offset of Bone Data                                             |                  | `mdlOffset`     |
-| 0x1C   | UInt32     | Offset of Bone Data                                             |                  | `mdlOffset`     |
-| 0x20   | UInt32     | Unknown                                                         |                  |                 |
-| 0x24   | UInt32     | Offset of Bone Data                                             |                  | `mdlOffset`     |
-| 0x28   | UInt32     | Offset of Unknown Data or end of bone data (Before 0xFFFFFFFF's)|                  | `mdlOffset`     |
-| 0x2C   | UInt32     | Offset of Model Data             (After  0xFFFFFFFF's)          |                  | `mdlOffset`     |
-| 0x30   | UInt32     | Offset of Model Data             (After  0xFFFFFFFF's)          |                  | `mdlOffset`     |
-| 0x34   | UInt32     | Offset of Triangle Strip Data                                   | `triDataOffset`  | `mdlOffset`     |
-| 0x38   | UInt32     | Unknown                                                         |                  |                 |
-| 0x3C   | UInt32     | Offset of Vertex Data                                           |                  | `mdlOffset`     |
-| 0x40   | UInt32     | Unknown                                                         |                  |                 |
-| 0x44   | UInt32     | Unknown Offset (Could be bone data or end of vertex data)       |                  |                 |
-| 0x48   | Bytes[324] | Unknown (TBD)                                                   |                  |                 |
-
-_Model header is part of a list_ <br>
-_Unknown Data (see 0x28) may contain inverse kinematics points/targets (point0 XYZ, unk, point1 XYZ, unk)_ <br>
-
-
-<br>
-
-
-### Bone Data
-
-| Offset | Type      | Description                                                   | Key            |
-|--------|-----------|---------------------------------------------------------------|----------------|
-| 0x00   | Bytes[16] | Name of Bone (ASCII string with a maximum length of 16 bytes) | `boneName`     |
-| 0x10   | UInt16    | Unknown           (First bone always has 0xFFFF)              |                |
-| 0x12   | UInt16    | ID of Parent Bone (First bone always has 0xFFFF)              | `boneParentID` |
-| 0x14   | UInt16    | Unknown                                                       |                |
-| 0x16   | UInt16    | ID of Bone                                                    | `boneID`       |
-| 0x18   | Float32   | Location X                                                    |                |
-| 0x1C   | Float32   | Location Y                                                    |                |
-| 0x20   | Float32   | Location Z                                                    |                |
-| 0x24   | Float32   | Rotation Euler Radian X                                       |                |
-| 0x28   | Float32   | Rotation Euler Radian Y                                       |                |
-| 0x2C   | Float32   | Rotation Euler Radian Z                                       |                |
-| 0x30   | Float32   | Rotation Euler Radian X                                       |                |
-| 0x34   | Float32   | Rotation Euler Radian Y                                       |                |
-| 0x38   | Float32   | Rotation Euler Radian Z                                       |                |
-| 0x3C   | Bytes[24] | Contains 6 float values with either -1.0 or 1.0               |                |
-
-Location and Rotation is relative to parent bone.
-
-
-<br>
-
-
-### Triangle Strip Data
-
-| Offset | Type       | Description                        | Key         | Rel         |
-|--------|------------|------------------------------------|-------------|-------------|
-| 0x00   | UInt32     | Offset of Triangle indices         |             | `mdlOffset` |
-| 0x04   | UInt32     | Triangle Count                     | `triCount`  |             |
-| 0x08   | Bytes[8]   | Unknown                            |             |             |
-
-
-**Triangle indices**
-
-The amount of triangle indices is determined by `triCount` <br>
-| Type    | Description                        |
-|---------|------------------------------------|
-| UInt16  | Triangle index                     |
-
-_First strip usually starts off with 0x0000 0x0100 0x0200_ <br>
-_If there's multiple strips, triangle indices will be separated by 0xFFFF <br>_
-
-
-
-<br>
-
-
-### Vertex Data
-
-Bytes[64]
-| Offset | Type    | Description                        | Key          |
-|--------|---------|------------------------------------|--------------|
-| 0x00   | Float32 | Vertex X position                  | `vtxPosX`    |
-| 0x04   | Float32 | Vertex Y position                  | `vtxPosY`    |
-| 0x08   | Float32 | Vertex Z position                  | `vtxPosZ`    |
-| 0x0C   | Float32 | Unknown (1.0)                      |              |
-| 0x10   | Float32 | Normal (vertex) X direction        | `nrmDirX`    |
-| 0x14   | Float32 | Normal (vertex) Y direction        | `nrmDirY`    |
-| 0x18   | Float32 | Normal (vertex) Z direction        | `nrmDirZ`    |
-| 0x1C   | UInt32  | Unknown (0 or 1, Filler/Padding)   |              |
-| 0x20   | Float32 | Unknown                            |              |
-| 0x24   | Float32 | Unknown                            |              |
-| 0x28   | Float32 | Unknown                            |              |
-| 0x2C   | Float32 | Unknown (1.0)                      |              |
-| 0x30   | Float32 | UV Map U                           | `texMapU`    |
-| 0x34   | Float32 | UV Map V                           | `texMapV`    |
-| 0x38   | UInt32  | 0xFFFFFFFF                         |              |
-| 0x3C   | UInt32  | Unknown                            |              |
-
-_Unknown float3 at 0x20 might be Face Normals or Tangent Normals for normal/bump maps._
