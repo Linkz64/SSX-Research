@@ -56,29 +56,29 @@ Section 0 - Bytes[12]
 
 ## Model Header
 Section 1 - Bytes[80]
-| Offset | Type      | Description                                                | Key         | Rel                 |
-|--------|-----------|------------------------------------------------------------|-------------|---------------------|
-| 0x00   | Bytes[16] | Name of Model (ASCII string with a max length of 16 bytes) | `mdlName`   |                     |
-| 0x10   | UInt32    | Offset of Model                                            | `mdlOffset` | `mdlDataListOffset` |
-| 0x14   | UInt32    | Size of model in bytes                                     |             |                     |
-| 0x18   | UInt32    | Offset of Model data start                                 |             | `mdlOffset`         |
-| 0x1C   | UInt32    | Offset of Bone weight/extra                                |             | `mdlOffset`         |
-| 0x20   | UInt32    | Offset of some unknown data                                |             | `mdlOffset`         |
-| 0x24   | UInt32    | Offset of Mesh Data                                        |             | `mdlOffset`         |
-| 0x28   | UInt32    | Unknown                                                    |             |                     |
-| 0x2C   | UInt32    | Offset of Bone weight/extra                                |             | `mdlOffset`         |
-| 0x30   | UInt32    | Offset of Number list reference                            |             | `mdlOffset`         |
-| 0x34   | UInt32    | Offset of Bone weight/extra                                |             | `mdlOffset`         |
-| 0x38   | UInt32    | Unknown                                                    |             |                     |
-| 0x3C   | UInt16    | Unknown                                                    |             |                     |
-| 0x3E   | UInt16    | Unknown (Count?)                                           |             |                     |
-| 0x40   | UInt16    | Unknown (Bone Count?)                                      |             |                     |
-| 0x42   | UInt16    | Count of the **Bone Data**                                 |             | `boneDataCount`     |
-| 0x44   | UInt16    | Count of **Unknown Data**                                  |             | `unkDataCount`      |
-| 0x46   | UInt16    | Unknown                                                    |             |                     |
-| 0x48   | UInt16    | Unknown Count                                              |             |                     |
-| 0x4A   | UInt16    | Unknown                                                    |             |                     |
-| 0x4C   | UInt32    | Filler/Padding                                             |             |                     |
+| Offset | Type      | Description                                                | Key                | Rel                 |
+|--------|-----------|------------------------------------------------------------|--------------------|---------------------|
+| 0x00   | Bytes[16] | Name of Model (ASCII string with a max length of 16 bytes) | `mdlName`          |                     |
+| 0x10   | UInt32    | Offset of Model                                            | `mdlOffset`        | `mdlDataListOffset` |
+| 0x14   | UInt32    | Size of model in bytes                                     |                    |                     |
+| 0x18   | UInt32    | Offset of Bone Data List                                   | `boneListOffset`   | `mdlOffset`         |
+| 0x1C   | UInt32    | Offset of Bone weight/extra                                |                    | `mdlOffset`         |
+| 0x20   | UInt32    | Offset of some unknown data                                |                    | `mdlOffset`         |
+| 0x24   | UInt32    | Offset of Mesh Data                                        |                    | `mdlOffset`         |
+| 0x28   | UInt32    | Unknown                                                    |                    |                     |
+| 0x2C   | UInt32    | Offset of Bone weight/extra                                |                    | `mdlOffset`         |
+| 0x30   | UInt32    | Offset of Number list reference                            |                    | `mdlOffset`         |
+| 0x34   | UInt32    | Offset of Bone weight/extra                                |                    | `mdlOffset`         |
+| 0x38   | UInt32    | Unknown                                                    |                    |                     |
+| 0x3C   | UInt16    | Unknown                                                    |                    |                     |
+| 0x3E   | UInt16    | Unknown (Count?)                                           |                    |                     |
+| 0x40   | UInt16    | Unknown (Bone Count?)                                      |                    |                     |
+| 0x42   | UInt16    | Count of the **Bone Data**                                 | `boneDataCount`    |                     |
+| 0x44   | UInt16    | Count of **Material Data**                                 | `matDataCount`     |                     |
+| 0x46   | UInt16    | Unknown                                                    |                    |                     |
+| 0x48   | UInt16    | Unknown Count                                              |                    |                     |
+| 0x4A   | UInt16    | Unknown                                                    |                    |                     |
+| 0x4C   | UInt32    | Filler/Padding                                             |                    |                     |
 
 
 <br>
@@ -88,15 +88,14 @@ Section 1 - Bytes[80]
 
 | Name                 | Description                                              |
 |----------------------|----------------------------------------------------------|
-| Material List        | Contains this `unkDataCount` many **Material Data**      |
-| Bone Data List       | Contains this `boneDataCount` many **Bone Data**         |
+| Material Data        |                                                          |
+| Bone Data List       |                                                          |
 | Bone Weight Headers  |                                                          |
 | Number List Ref      |                                                          |
 | Unknown List         |                                                          |
 | Unknown Data         |                                                          |
 | Internal Mesh Ref    |                                                          |
 | Internal Mesh        |                                                          |
-| Footer               | Bytes[32]                                                |
 
 
 <br>
@@ -108,8 +107,8 @@ Section 1 - Bytes[80]
 |--------|-----------|-----------------------------------------------------------------------|----------------|
 | 0x00   | Bytes[4]  | Name of main Texture map/file                                         |                |
 | 0x04   | Bytes[4]  | Name/Type of Texture                                                  |                |
-| 0x04   | Bytes[4]  | Name/Type of Texture                                                  |                |
-| 0x04   | Bytes[4]  | Name/Type of Texture                                                  |                |
+| 0x08   | Bytes[4]  | Name/Type of Texture                                                  |                |
+| 0x0C   | Bytes[4]  | Name/Type of Texture                                                  |                |
 | 0x04   | Bytes[4]  | Name/Type of Texture                                                  |                |
 | 0x14   | Float32   | Unknown float value                                                   |                |
 | 0x18   | Float32   | Unknown float value                                                   |                |
@@ -119,17 +118,19 @@ If a slot has 0x00202020 it may be a placeholder
 
 **Texture types:**
 
-- **_b    = Bump/Normal map (Xbox) <br>
-- **_g    = Shadow/Light?
-- �nvr   = Environment/Reflection?
-- envr    = Environment/Reflection? (Xbox)
+** = first and last letter of main texture name
+
+- **_b   - Bump/Normal map (Xbox) <br>
+- **_g   - Shadow/Light?
+- �nvr  - Environment/Reflection? (Might be leftover)
+- envr   - Environment/Reflection? (Xbox)
 
 
 <br>
 
 
 ## Bone Data
-
+Size - Bytes[84]
 | Offset | Type      | Description                                                   | Key            |
 |--------|-----------|---------------------------------------------------------------|----------------|
 | 0x00   | Bytes[16] | Name of Bone (ASCII string with a maximum length of 16 bytes) | `boneName`     |
