@@ -88,8 +88,8 @@ Section 1 - Bytes[80]
 
 | Name                 | Description                                              |
 |----------------------|----------------------------------------------------------|
-| Material Data        |                                                          |
-| Bone Data List       |                                                          |
+| Material Data Lists  | Contains this `matDataCount` many materials              |
+| Bone Data List       | Contains this `boneDataCount` many bones                 |
 | Bone Weight Headers  |                                                          |
 | Number List Ref      |                                                          |
 | Unknown List         |                                                          |
@@ -168,9 +168,9 @@ Location and Rotation is relative to parent bone.
 ## Bone Weight
 | Offset | Type   | Description            | Key | Rel |
 |--------|--------|------------------------|-----|-----|
-| 0x00   | UInt32 | Bone weight (0 to 100) |     |     |
-| 0x02   | UInt32 | Bone ID                |     |     |
-| 0x03   | UInt32 | Unknown                |     |     |
+| 0x00   | UInt16 | Bone weight (0 to 100) |     |     |
+| 0x02   | UInt8  | Bone ID                |     |     |
+| 0x03   | UInt8  | Unknown                |     |     |
 
 
 <br>
