@@ -38,6 +38,7 @@ Character ID<br>
 ### Header
 | Type   | Description                          | Description             |
 |--------|--------------------------------------|-----------------|
+| Int32  | Unknown      |                 |
 | Int32  | Item Ammount      |                 |
 
 ### Item Entries
