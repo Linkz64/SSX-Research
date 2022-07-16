@@ -31,42 +31,41 @@ Please note hex offsets are currently wrong
 
 ## File Header
 Section 0 - Bytes[12]
-| Offset | Type   | Description                          | Key             |
-|--------|--------|--------------------------------------|-----------------|
-| 0x00   | UInt32 | Unknown (Possibly version or magic)  |                 |
-| 0x04   | Int16  | Count of **Model Files**             | `mdlCount`      |
-| 0x06   | Int16  | Offset of **Model Header List**      |                 |
-| 0x08   | UInt32 | Offset of **Model Data List**        | `mdlRootOffset` |
+| Offset | Type   | Description                          | Key                 |
+|--------|--------|--------------------------------------|---------------------|
+| 0x00   | UInt32 | Unknown (Possibly version or magic)  |                     |
+| 0x04   | Int16  | Count of **Model Files**             | `mdlCount`          |
+| 0x06   | Int16  | Offset of **Model Header List**      |                     |
+| 0x08   | UInt32 | Offset of **Model Data List**        | `mdlDataListOffset` |
 
 
 ## Model Header
 Section 1 - Bytes[128]
-| Offset | Type      | Description                                                | Key         | Rel             |
-|--------|-----------|------------------------------------------------------------|-------------|-----------------|
-| 0x00   | Bytes[16] | Name of model (ASCII string with a max length of 16 bytes) | `mdlName`   |                 |
-| 0x10   | UInt32    | Offset of model                                            | `mdlOffset` | `mdlRootOffset` |
-| 0x18   | UInt32    | Offset of Model data start                                 |             | `mdlOffset`     |
-| 0x14   | UInt32    | Size of model in bytes                                     |             |                 |
-| 0x1C   | UInt32    | Offset of Bones                                            |             | `mdlOffset`     |
-| 0x20   | UInt32    | Offset of some unknown data (Possible Rotation Data)       |             | `mdlOffset`     |
-| 0x24   | UInt32    | Offset of Chunk Data                                       |             | `mdlOffset`     |
-| 0x28   | UInt32    | Data Start                                                 |             |                 |
-| 0x3C   | UInt16    | Chunk Count                                                |             |                 |
-| 0x3E   | UInt16    | Bone Count                                                 |             |                 |
-| 0x40   | UInt16    | Unknown Count                                              |             |                 |
-| 0x42   | UInt16    | Body Objects Count                                         |             | `boneDataCount` |
-| 0x44   | UInt16    | Unknown Data Count (Possible Rotation Stuff)               |             |                 |
-| 0x4C   | UInt32    | Filler/Padding                                             |             |                 |
+| Offset | Type      | Description                                                | Key             | Rel                 |
+|--------|-----------|------------------------------------------------------------|-----------------|---------------------|
+| 0x00   | Bytes[16] | Name of model (ASCII string with a max length of 16 bytes) | `mdlName`       |                     |
+| 0x10   | UInt32    | Offset of model                                            | `mdlOffset`     | `mdlDataListOffset` |
+| 0x14   | UInt32    | Size of model in bytes                                     |                 | `mdlOffset`         |
+| 0x18   | UInt32    | Offset of Bones                                            |                 |                     |
+| 0x1C   | UInt32    | Offset of some unknown data (Possible Rotation Data)       |                 | `mdlOffset`         |
+| 0x20   | UInt32    | Offset of Chunk Data                                       |                 | `mdlOffset`         |
+| 0x24   | UInt32    | Offset of Mesh Data Start                                  |                 | `mdlOffset`         |
+| 0x28   | UInt16    | Count of Chunk Data                                        |                 |                     |
+| 0x2A   | UInt16    | Count of Bone Data                                         |                 |                     |
+| 0x2C   | UInt16    | Unknown Count                                              |                 |                     |
+| 0x2E   | UInt8     | Count of Material Data                                     | `matDataCount`  |                     |
+| 0x2F   | UInt8     | Count of Inverse Kinematic Points                          | `ikDataCount`   |                     |
+| 0x30   | Bytes[16] | Filler/Padding                                             |                 |                     |
 
 
-## Body Objects(?)
+## Material Data
 
 | Offset | Type      | Description                                    | Key            |
 |--------|-----------|------------------------------------------------|----------------|
-| 0x00   | Bytes[4]  | Name                                           |                |
-| 0x14   | Float32   | Unknown float value (x?)                       |                |
-| 0x14   | Float32   | Unknown float value (y?)                       |                |
-| 0x14   | Float32   | Unknown float value (z?)                       |                |
+| 0x00   | Bytes[4]  | Name of Texture map/file                       |                |
+| 0x04   | Float32   | Unknown float value (Red?)                     |                |
+| 0x08   | Float32   | Unknown float value (Green?)                   |                |
+| 0x0C   | Float32   | Unknown float value (Blue?)                    |                |
 
 ## Bone Data
 
@@ -75,30 +74,37 @@ Section 1 - Bytes[128]
 | 0x00   | Bytes[16] | Name of Bone (ASCII string with a maximum length of 16 bytes) | `boneName`     |
 | 0x10   | UInt16    | Unknown           (First bone always has 0xFFFF)              |                |
 | 0x12   | UInt16    | ID of Parent Bone (First bone always has 0xFFFF)              | `boneParentID` |
-| 0x18   | Float32   | Location X                                                    |                |
-| 0x1C   | Float32   | Location Y                                                    |                |
-| 0x20   | Float32   | Location Z                                                    |                |
+| 0x14   | Float32   | Location X                                                    |                |
+| 0x18   | Float32   | Location Y                                                    |                |
+| 0x1C   | Float32   | Location Z                                                    |                |
 
 
-## Rotation data? Header
-| Offset | Type   | Description                    | Key | Rel |
-|--------|--------|--------------------------------|-----|-----|
-| 0x14   | Float32   | Unknown float value (x?)    |     |     |
-| 0x14   | Float32   | Unknown float value (y?)    |     |     |
-| 0x14   | Float32   | Unknown float value (z?)    |     |     |
-| 0x08   | UInt32 | Unknown (Filler)               |     |     |
+
+<!-- Inverse Kinematic bones/tagets/points 
+
+This is a list which usually contains 2 points
+Boards use them so the character's boots stick on
+
+-->
+## Inverse Kinematic Point
+| Offset | Type      | Description                    | Key | Rel |
+|--------|-----------|--------------------------------|-----|-----|
+| 0x00   | Float32   | Location X                     |     |     |
+| 0x04   | Float32   | Location Y                     |     |     |
+| 0x08   | Float32   | Location Z                     |     |     |
+| 0x0C   | UInt32    | Unknown (Filler)               |     |     |
 
 
 ## Chunk Data
 | Offset | Type   | Description                | Key | Rel |
 |--------|--------|----------------------------|-----|-----|
 | 0x00   | UInt32 | ID                         |     |     |
-| 0x02   | UInt32 | Chunk ID                   |     |     |
-| 0x03   | UInt32 | Unknown                    |     |     |
-| 0x03   | UInt32 | Static Mesh Offset Start   |     |     |
-| 0x03   | UInt32 | Static Mesh Offset End     |     |     |
-| 0x03   | UInt32 | Flex Mesh Offset Start     |     |     |
-| 0x03   | UInt32 | Flex Mesh Offset End       |     |     |
+| 0x04   | UInt32 | Chunk ID                   |     |     |
+| 0x08   | UInt32 | Unknown                    |     |     |
+| 0x0C   | UInt32 | Static Mesh Offset Start   |     |     |
+| 0x10   | UInt32 | Static Mesh Offset End     |     |     |
+| 0x14   | UInt32 | Flex Mesh Offset Start     |     |     |
+| 0x18   | UInt32 | Flex Mesh Offset End       |     |     |
 
 
 ## ==Headers Need To be Revised==
