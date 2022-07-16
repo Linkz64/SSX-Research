@@ -47,7 +47,7 @@ Section 1 - Bytes[128]
 | 0x10   | UInt32    | Offset of model                                            | `mdlOffset`     | `mdlDataListOffset` |
 | 0x14   | UInt32    | Size of model in bytes                                     |                 | `mdlOffset`         |
 | 0x18   | UInt32    | Offset of Bones                                            |                 |                     |
-| 0x1C   | UInt32    | Offset of some unknown data (Possible Rotation Data)       |                 | `mdlOffset`         |
+| 0x1C   | UInt32    | Offset of Inverse Kinematic Point                          |                 | `mdlOffset`         |
 | 0x20   | UInt32    | Offset of Chunk Data                                       |                 | `mdlOffset`         |
 | 0x24   | UInt32    | Offset of Mesh Data Start                                  |                 | `mdlOffset`         |
 | 0x28   | UInt16    | Count of Chunk Data                                        |                 |                     |
