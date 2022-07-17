@@ -99,7 +99,7 @@ Boards use them so the character's boots stick on
 | Offset | Type   | Description                | Key | Rel |
 |--------|--------|----------------------------|-----|-----|
 | 0x00   | UInt32 | ID                         |     |     |
-| 0x04   | UInt32 | Chunk ID                   |     |     |
+| 0x04   | UInt32 | Material ID                |     |     |
 | 0x08   | UInt32 | Unknown                    |     |     |
 | 0x0C   | UInt32 | Static Mesh Offset Start   |     |     |
 | 0x10   | UInt32 | Static Mesh Offset End     |     |     |
@@ -150,7 +150,7 @@ Boards use them so the character's boots stick on
 |        | Byte     | Array Size         |     |
 |        | Byte     | Array Type         |     |
 
-#### UV
+### UV
 Divide By 4096
 | Type      | Description                             |
 |-----------|-----------------------------------------|
@@ -198,3 +198,8 @@ Divide By 4096
 | Float32   | Location Y                    |
 | Float32   | Location Z                    |
 
+## Static Mesh Block Footer
+| Offset | Type     | Description  | Key |
+|--------|----------|--------------|-----|
+|        | UInt24   | Row Count    |     |
+|        | Byte[14] | Padding      |     |
