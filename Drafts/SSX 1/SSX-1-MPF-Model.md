@@ -111,7 +111,18 @@ Boards use them so the character's boots stick on
 
 # Static Mesh
 ## Mesh Data
-+48 Offset
+### Triangle Strip Header
+| Offset | Type     | Description        | Key |
+|--------|----------|--------------------|-----|
+|        | UInt24   | Row Count          |     |
+|        | UInt24   | Type or Size       |     |
+|        | Byte[10] | Padding            |     |
+|        | Byte[16] | Unknown            |     |
+|        | Byte[10] | Unknown            |     |
+|        | Byte     | Array Declaration? |     |
+|        | Byte     | Array Size         |     |
+|        | Byte     | Array Type         |     |
+
 | Type      | Description                                                         |
 |-----------|---------------------------------------------------------------------|
 | UInt32    | Strip Count                                                         |
@@ -124,10 +135,20 @@ Boards use them so the character's boots stick on
 |-----------|-----------------------------------------|
 | UInt32    | Count of vertices                       |
 | Bytes[12] | Padding                                 |
-+16 Offset
 
 ## UV Block
-+48 Offset
+### UV Header
+| Offset | Type     | Description        | Key |
+|--------|----------|--------------------|-----|
+|        | UInt24   | Row Count          |     |
+|        | UInt24   | Type or Size       |     |
+|        | Byte[10] | Padding            |     |
+|        | Byte[16] | Unknown            |     |
+|        | Byte[16] | Unknown            |     |
+|        | Byte[10] | Unknown            |     |
+|        | Byte     | Array Declaration? |     |
+|        | Byte     | Array Size         |     |
+|        | Byte     | Array Type         |     |
 
 #### UV
 Divide By 4096
@@ -137,7 +158,17 @@ Divide By 4096
 | UInt16    | UV map V    (Y translation)             |
 
 ## Normal Block
-+48 Offset
+### Normal Header
+| Offset | Type     | Description        | Key |
+|--------|----------|--------------------|-----|
+|        | UInt24   | Row Count          |     |
+|        | UInt24   | Type or Size       |     |
+|        | Byte[10] | Padding            |     |
+|        | Byte[16] | Unknown            |     |
+|        | Byte[10] | Unknown            |     |
+|        | Byte     | Array Declaration? |     |
+|        | Byte     | Array Size         |     |
+|        | Byte     | Array Type         |     |
 
 #### Normal
 | Type      | Description                   |
@@ -148,7 +179,17 @@ Divide By 4096
 
 
 ## Vertex  Block
-+48 Offset
+### Vertex Header
+| Offset | Type     | Description        | Key |
+|--------|----------|--------------------|-----|
+|        | UInt24   | Row Count          |     |
+|        | UInt24   | Type or Size       |     |
+|        | Byte[10] | Padding            |     |
+|        | Byte[16] | Unknown            |     |
+|        | Byte[10] | Unknown            |     |
+|        | Byte     | Array Declaration? |     |
+|        | Byte     | Array Size         |     |
+|        | Byte     | Array Type         |     |
 
 #### Vertex
 | Type      | Description                   |
