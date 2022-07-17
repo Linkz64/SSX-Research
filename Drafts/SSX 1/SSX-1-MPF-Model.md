@@ -136,13 +136,16 @@ Boards use them so the character's boots stick on
 | UInt32    | Count of vertices                       |
 | Bytes[12] | Padding                                 |
 
+##
+| Offset | Type     | Description        | Key |
+|        | UInt24   | Row Count          |     |
+|        | UInt24   | Type or Size       |     |
+|        | Byte[10] | Padding            |     |
+
 ## UV Block
 ### UV Header
 | Offset | Type     | Description        | Key |
 |--------|----------|--------------------|-----|
-|        | UInt24   | Row Count          |     |
-|        | UInt24   | Type or Size       |     |
-|        | Byte[10] | Padding            |     |
 |        | Byte[16] | Unknown            |     |
 |        | Byte[16] | Unknown            |     |
 |        | Byte[10] | Unknown            |     |
@@ -161,9 +164,7 @@ Divide By 4096
 ### Normal Header
 | Offset | Type     | Description        | Key |
 |--------|----------|--------------------|-----|
-|        | UInt24   | Row Count          |     |
-|        | UInt24   | Type or Size       |     |
-|        | Byte[10] | Padding            |     |
+|        | Byte[16] | Unknown            |     |
 |        | Byte[16] | Unknown            |     |
 |        | Byte[10] | Unknown            |     |
 |        | Byte     | Array Declaration? |     |
@@ -182,9 +183,7 @@ Divide By 4096
 ### Vertex Header
 | Offset | Type     | Description        | Key |
 |--------|----------|--------------------|-----|
-|        | UInt24   | Row Count          |     |
-|        | UInt24   | Type or Size       |     |
-|        | Byte[10] | Padding            |     |
+|        | Byte[16] | Unknown            |     |
 |        | Byte[16] | Unknown            |     |
 |        | Byte[10] | Unknown            |     |
 |        | Byte     | Array Declaration? |     |
