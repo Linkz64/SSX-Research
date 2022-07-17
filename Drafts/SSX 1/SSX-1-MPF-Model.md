@@ -136,7 +136,7 @@ Boards use them so the character's boots stick on
 | UInt32    | Count of vertices                       |
 | Bytes[12] | Padding                                 |
 
-##
+##Header
 | Offset | Type     | Description        | Key |
 |        | UInt24   | Row Count          |     |
 |        | UInt24   | Type or Size       |     |
