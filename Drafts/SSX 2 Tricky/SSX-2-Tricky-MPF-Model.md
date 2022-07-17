@@ -21,13 +21,13 @@ Used for boards, characters and accessories.
 
 <br>
 
+Here is the structure made in programming languages for easy code implementation:
+<br>
+- [SSX Tricky mpf GO struct by Erick](https://github.com/Erickson400/TheTrickyModels/blob/main/mpf/MpfStructure.go)<br>
+- [SSX Tricky mpf C# handler by GlitcherOG](https://github.com/GlitcherOG/SSX-PS2-Collection-Modder/blob/main/FileHandlers/Models/TrickyMPFModelHandler.cs)<br>
 
 # Structure
 
-
-[SSX Tricky mpf GO struct by Erick](https://github.com/Erickson400/TheTrickyModels/blob/main/mpf/MpfStructure.go)<br>
-[SSX Tricky mpf C# handler by GlitcherOG](https://github.com/GlitcherOG/SSX-PS2-Collection-Modder/blob/main/FileHandlers/Models/TrickyMPFModelHandler.cs)<br>
-[SSX 3 mpf C# struct by kris2ffer](https://github.com/Kris2ffer/SSX-3D/blob/ps2-model/ssx3-ps2-model.cs)<br>
 
 <br>
 
