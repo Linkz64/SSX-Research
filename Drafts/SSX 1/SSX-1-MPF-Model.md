@@ -111,18 +111,21 @@ Boards use them so the character's boots stick on
 
 # Static Mesh
 ## Mesh Data
-### Triangle Strip Header
 | Offset | Type     | Description        | Key |
 |--------|----------|--------------------|-----|
 |        | UInt24   | Row Count          |     |
-|        | UInt24   | Type or Size       |     |
-|        | Byte[10] | Padding            |     |
+|        | Byte     | Type or Size       |     |
+|        | Byte[12] | Padding            |     |
 |        | Byte[16] | Unknown            |     |
 |        | Byte[10] | Unknown            |     |
 |        | Byte     | Array Declaration? |     |
 |        | Byte     | Array Size         |     |
 |        | Byte     | Array Type         |     |
+|        | Byte[16] | Unknown            |     |
+|        | Row      | Model Info         |     |
+|        | List     | Triangle Strip Count Row            |     |
 
+### Model Info
 | Type      | Description                                                         |
 |-----------|---------------------------------------------------------------------|
 | UInt32    | Strip Count                                                         |
@@ -130,20 +133,20 @@ Boards use them so the character's boots stick on
 | UInt32    | Normal Count (Can use used to detect if normals are in the file)    |
 | UInt32    | Vertex Count                                                        |
 
-#### Triangle Strip Count Row
+### Triangle Strip Count Row
 | Type      | Description                             |
 |-----------|-----------------------------------------|
 | UInt32    | Count of vertices                       |
 | Bytes[12] | Padding                                 |
 
-##Header
+## Pre Block Header
 | Offset | Type     | Description        | Key |
+|--------|----------|--------------------|-----|
 |        | UInt24   | Row Count          |     |
-|        | UInt24   | Type or Size       |     |
-|        | Byte[10] | Padding            |     |
+|        | Byte   | Type or Size       |     |
+|        | Byte[12] | Padding            |     |
 
 ## UV Block
-### UV Header
 | Offset | Type     | Description        | Key |
 |--------|----------|--------------------|-----|
 |        | Byte[16] | Unknown            |     |
@@ -152,8 +155,9 @@ Boards use them so the character's boots stick on
 |        | Byte     | Array Declaration? |     |
 |        | Byte     | Array Size         |     |
 |        | Byte     | Array Type         |     |
+|        | List     | UV Data            |     |
 
-### UV
+### UV Data
 Divide By 4096
 | Type      | Description                             |
 |-----------|-----------------------------------------|
@@ -161,7 +165,6 @@ Divide By 4096
 | UInt16    | UV map V    (Y translation)             |
 
 ## Normal Block
-### Normal Header
 | Offset | Type     | Description        | Key |
 |--------|----------|--------------------|-----|
 |        | Byte[16] | Unknown            |     |
@@ -170,8 +173,9 @@ Divide By 4096
 |        | Byte     | Array Declaration? |     |
 |        | Byte     | Array Size         |     |
 |        | Byte     | Array Type         |     |
+|        | List     | Normal Data        |     |
 
-#### Normal
+### Normal Data
 | Type      | Description                   |
 |-----------|-------------------------------|
 | UInt16    | Normal X direction            |
@@ -180,7 +184,6 @@ Divide By 4096
 
 
 ## Vertex  Block
-### Vertex Header
 | Offset | Type     | Description        | Key |
 |--------|----------|--------------------|-----|
 |        | Byte[16] | Unknown            |     |
@@ -189,8 +192,9 @@ Divide By 4096
 |        | Byte     | Array Declaration? |     |
 |        | Byte     | Array Size         |     |
 |        | Byte     | Array Type         |     |
+|        | List     | Vertex Data        |     |
 
-#### Vertex
+### Vertex Data
 | Type      | Description                   |
 |-----------|-------------------------------|
 | Float32   | Location X                    |
@@ -201,4 +205,5 @@ Divide By 4096
 | Offset | Type     | Description  | Key |
 |--------|----------|--------------|-----|
 |        | UInt24   | Row Count    |     |
-|        | Byte[14] | Padding      |     |
+|        | Byte[13] | Unknown      |     |
+
