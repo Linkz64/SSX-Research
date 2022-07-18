@@ -114,7 +114,7 @@ Boards use them so the character's boots stick on
 | Offset | Type     | Description        | Key |
 |--------|----------|--------------------|-----|
 |        | UInt24   | Row Count          |     |
-|        | Byte     | Type or Size       |     |
+|        | Byte     | Column Size        |     |
 |        | Byte[12] | Padding            |     |
 |        | Byte[16] | Unknown            |     |
 |        | Byte[10] | Unknown            |     |
