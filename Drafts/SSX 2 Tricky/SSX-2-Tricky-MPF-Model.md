@@ -59,25 +59,25 @@ Section 1 - Bytes[80]
 | Offset 	| Type      	| Description                                                	| Key              	| Rel                 	|
 |--------	|-----------	|------------------------------------------------------------	|------------------	|---------------------	|
 | 0x00   	| Bytes[16] 	| Name of Model (ASCII string with a max length of 16 bytes) 	| `mdlName`        	|                     	|
-| 0x10   	| UInt32    	| Offset of Model                                            	| `mdlOffset`      	| `mdlDataListOffset` 	|
-| 0x14   	| UInt32    	| Size of model in bytes                                     	|                  	|                     	|
-| 0x18   	| UInt32    	| Offset of Bone Data List                                   	| `boneListOffset` 	| `mdlOffset`         	|
-| 0x1C   	| UInt32    	| Offset of IK Point                                         	|                  	| `mdlOffset`         	|
-| 0x20   	| UInt32    	| Offset of Chunk Offset                                     	|                  	| `mdlOffset`         	|
-| 0x24   	| UInt32    	| Offset of Mesh Data                                        	|                  	| `mdlOffset`         	|
-| 0x28   	| UInt32    	| Offset Of Material Data?                                   	|                  	|                     	|
-| 0x2C   	| UInt32    	| Offset of Bone weight/extra                                	|                  	| `mdlOffset`         	|
-| 0x30   	| UInt32    	| Offset of Number list reference                            	|                  	| `mdlOffset`         	|
-| 0x34   	| UInt32    	| Offset of Bone weight/extra?                               	|                  	| `mdlOffset`         	|
-| 0x38   	| UInt32    	| Unknown                                                    	|                  	|                     	|
-| 0x3C   	| UInt16    	| Unknown                                                    	|                  	|                     	|
-| 0x3E   	| UInt16    	| Bone Weight Count                                          	|                  	|                     	|
-| 0x40   	| UInt16    	| Chunk Data Count                                           	|                  	|                     	|
-| 0x42   	| UInt16    	| Count of the **Bone Data**                                 	| `boneDataCount`  	|                     	|
+| 0x10   	| UInt32    	| Offset of **Model Data**                                   	| `mdlDataOffset`  	| `mdlDataListOffset` 	|
+| 0x14   	| UInt32    	| Size of model in bytes or end offset                       	|                  	| `mdlDataOffset`     	|
+| 0x18   	| UInt32    	| Offset of **Bone Data List**                               	| `boneListOffset` 	| `mdlDataOffset`     	|
+| 0x1C   	| UInt32    	| Offset of **IK Point List**                                	|                  	| `mdlDataOffset`     	|
+| 0x20   	| UInt32    	| Offset of **Chunk Offset** (Mesh group offsets)            	|                  	| `mdlDataOffset`     	|
+| 0x24   	| UInt32    	| Offset of **Mesh Data**                                    	|                  	| `mdlDataOffset`     	|
+| 0x28   	| UInt32    	| Offset Of **Material Data**?                               	|                  	|                     	|
+| 0x2C   	| UInt32    	| Offset of **Skinning Data**                                	|                  	| `mdlDataOffset`     	|
+| 0x30   	| UInt32    	| Offset of _Number list reference_                          	|                  	| `mdlDataOffset`     	|
+| 0x34   	| UInt32    	| Offset of **Skinning Data**                                	|                  	| `mdlDataOffset`     	|
+| 0x38   	| UInt32    	| Unknown (Unused/Filler)                                    	|                  	|                     	|
+| 0x3C   	| UInt16    	| Unknown (Unused/Filler)                                    	|                  	|                     	|
+| 0x3E   	| UInt16    	| Count of **Skinning Data**                                 	|                  	|                     	|
+| 0x40   	| UInt16    	| Count of **Chunk Data**                                    	|                  	|                     	|
+| 0x42   	| UInt16    	| Count of **Bone Data**                                     	| `boneDataCount`  	|                     	|
 | 0x44   	| UInt16    	| Count of **Material Data**                                 	| `matDataCount`   	|                     	|
-| 0x46   	| UInt16    	| IK Count                                                   	|                  	|                     	|
-| 0x48   	| UInt16    	| Unknown Count                                              	|                  	|                     	|
-| 0x4A   	| UInt16    	| Unknown                                                    	|                  	|                     	|
+| 0x46   	| UInt16    	| Count of **IK points**                                     	|                  	|                     	|
+| 0x48   	| UInt16    	| Count of **Morph Data**                                    	|                  	|                     	|
+| 0x4A   	| UInt16    	| Unknown ID/Count (Related to Skeleton/Animation)           	|                  	|                     	|
 | 0x4C   	| UInt32    	| Filler/Padding                                             	|                  	|                     	|
 
 
@@ -154,6 +154,26 @@ Location and Rotation is relative to parent bone.
 <br>
 
 
+<!-- Inverse Kinematic bones/tagets/points 
+
+This is a list which usually contains 2 points
+Boards use them so the character's boots stick on
+
+-->
+## IK Point (Inverse Kinematic)
+| Offset | Type      | Description                    | Key | Rel |
+|--------|-----------|--------------------------------|-----|-----|
+| 0x00   | Float32   | Location X                     |     |     |
+| 0x04   | Float32   | Location Y                     |     |     |
+| 0x08   | Float32   | Location Z                     |     |     |
+| 0x0C   | UInt32    | Unknown (Filler)               |     |     |
+
+
+
+
+<br>
+
+
 ## Bone Weight Header
 | Offset | Type   | Description                | Key | Rel |
 |--------|--------|----------------------------|-----|-----|
@@ -173,72 +193,24 @@ Location and Rotation is relative to parent bone.
 | 0x03   | UInt8  | Unknown                |     |     |
 
 
-<br>
 
-
-## Number List Ref
-| Offset | Type   | Description                | Key | Rel |
-|--------|--------|----------------------------|-----|-----|
-| 0x00   | UInt32 | Count                      |     |     |
-| 0x04   | UInt32 | Offset of Number list      |     |     |
 
 
 <br>
 
-
-## Unknown Data
-| Offset | Type   | Description                                                  | Key | Rel |
-|--------|--------|--------------------------------------------------------------|-----|-----|
-| 0x00   | UInt32 | Unknown (Always 1)                                           |     |     |
-| 0x04   | UInt32 | Unknown (3 with one internal mesh, 4 with 2 internal meshes) |     |     |
-| 0x08   | UInt32 | Unknown (Always -1)                                          |     |     |
-
-
-<br>
-
-
-## Internal Mesh refs
-| Offset | Type   | Description                                                  | Key | Rel |
-|--------|--------|--------------------------------------------------------------|-----|-----|
-| 0x00   | UInt32 | Count                                                        |     |     |
-| 0x04   | UInt32 | Offset of internal mesh offset table                         |     |     |
-
-
-<br>
-
-
-
-
-## Internal Mesh
-
-- **Mesh Data**
-
-<br>
-
-
-## Offset of internal mesh offset OR Internal mesh header
-
-<br>
-
-## Offset of internal mesh
-
-
-<br>
-
-[//]: # ( THIS IS A COMMENT
-    Row Count Header <br>
-    Hex examples:<br>
-    01000010 00000000 00000000 00000000 <br>
+<!-- 
+    Row Count Header
+    Hex examples:
+    01000010 00000000 00000000 00000000
     ^ 1 row 
-    06000096 00000000 00000000 00000000 <br>
+    06000096 00000000 00000000 00000000
     ^ 6 rows
-Test
-)
+-->
 
 <!-- THIS IS ALSO A COMMENT
 
 Model Data List[
-    Model Data 1 List [
+    Model Data 1 [
         Material Data List[
             Material 1
             Material 2
