@@ -63,12 +63,12 @@ Section 1 - Bytes[80]
 | 0x14   	| UInt32    	| Size of model in bytes or end offset                       	|                  	| `mdlDataOffset`     	|
 | 0x18   	| UInt32    	| Offset of **Bone Data List**                               	| `boneListOffset` 	| `mdlDataOffset`     	|
 | 0x1C   	| UInt32    	| Offset of **IK Point List**                                	|                  	| `mdlDataOffset`     	|
-| 0x20   	| UInt32    	| Offset of **Chunk Offset** (Mesh group offsets)            	|                  	| `mdlDataOffset`     	|
+| 0x20   	| UInt32    	| Offset of **Mesh Group Offset** (Chunk offsets)            	|                  	| `mdlDataOffset`     	|
 | 0x24   	| UInt32    	| Offset of **Mesh Data**                                    	|                  	| `mdlDataOffset`     	|
 | 0x28   	| UInt32    	| Offset Of **Material Data**?                               	|                  	|                     	|
 | 0x2C   	| UInt32    	| Offset of **Skinning Data**                                	|                  	| `mdlDataOffset`     	|
 | 0x30   	| UInt32    	| Offset of _Number list reference_                          	|                  	| `mdlDataOffset`     	|
-| 0x34   	| UInt32    	| Offset of **Skinning Data**                                	|                  	| `mdlDataOffset`     	|
+| 0x34   	| UInt32    	| Unknown (Unused/Filler)                                    	|                  	| `mdlDataOffset`     	|
 | 0x38   	| UInt32    	| Unknown (Unused/Filler)                                    	|                  	|                     	|
 | 0x3C   	| UInt16    	| Unknown (Unused/Filler)                                    	|                  	|                     	|
 | 0x3E   	| UInt16    	| Count of **Skinning Data**                                 	|                  	|                     	|
@@ -167,6 +167,29 @@ Boards use them so the character's boots stick on
 | 0x04   | Float32   | Location Y                     |     |     |
 | 0x08   | Float32   | Location Z                     |     |     |
 | 0x0C   | UInt32    | Unknown (Filler)               |     |     |
+
+
+## Mesh Group
+| Offset 	| Type   	| Description      	| Key 	| Rel 	|
+|--------	|--------	|------------------	|-----	|-----	|
+| 0x00   	| UInt32 	| ID               	|     	|     	|
+| 0x04   	| UInt32 	| Material ID      	|     	|     	|
+| 0x08   	| UInt32 	| Unknown          	|     	|     	|
+|        	| UInt32 	| Sub Group Offset 	|     	|     	|
+|        	| UInt32 	| Sub Group Count  	|     	|     	|
+
+## Sub Mesh Group
+| Offset 	| Type   	| Description          	| Key 	| Rel 	|
+|--------	|--------	|----------------------	|-----	|-----	|
+| 0x00   	| UInt32 	| Sub Sub Group Offset 	|     	|     	|
+| 0x04   	| UInt32 	| Sub Sub Count        	|     	|     	|
+
+## Sub Sub Mesh Group
+| Offset 	| Type   	| Description  	| Key 	| Rel 	|
+|--------	|--------	|--------------	|-----	|-----	|
+| 0x00   	| UInt32 	| Model Offset 	|     	|     	|
+| 0x04   	| UInt32 	| Unknown 1    	|     	|     	|
+|        	| UInt32 	| Unknown 2    	|     	|     	|
 
 
 
