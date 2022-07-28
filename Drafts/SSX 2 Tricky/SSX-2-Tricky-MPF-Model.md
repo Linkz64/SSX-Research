@@ -169,7 +169,7 @@ Boards use them so the character's boots stick on
 | 0x0C   | UInt32    | Unknown (Filler)               |     |     |
 
 
-## Mesh Group
+## Group Main Header
 | Offset 	| Type   	| Description      	| Key 	| Rel 	|
 |--------	|--------	|------------------	|-----	|-----	|
 | 0x00   	| UInt32 	| ID               	|     	|     	|
@@ -178,11 +178,11 @@ Boards use them so the character's boots stick on
 |        	| UInt32 	| Sub Group Offset 	|     	|     	|
 |        	| UInt32 	| Sub Group Count  	|     	|     	|
 
-## Sub Mesh Group
+## Group Sub Group
 | Offset 	| Type   	| Description          	| Key 	| Rel 	|
 |--------	|--------	|----------------------	|-----	|-----	|
-| 0x00   	| UInt32 	| Sub Sub Group Offset 	|     	|     	|
-| 0x04   	| UInt32 	| Sub Sub Count        	|     	|     	|
+| 0x00   	| UInt32 	| Mesh Group Offset 	|     	|     	|
+| 0x04   	| UInt32 	| Mesh Group Count     	|     	|     	|
 
 ## Sub Sub Mesh Group
 | Offset 	| Type   	| Description  	| Key 	| Rel 	|
