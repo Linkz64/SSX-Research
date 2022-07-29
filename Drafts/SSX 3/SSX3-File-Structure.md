@@ -6,13 +6,13 @@
 # PS2
 Note: Currently based on the pal version
 ## Root
-| Name        	| Type            	| Description 	|
-|-------------	|-----------------	|-------------	|
-| CNF         	| Folder          	|             	|
-| [Data](#Data)     	| Folder          	|             	|
-| NETGUI      	| Folder          	|             	|
-| SLES_516.97 	| Boot File       	|             	|
-| SYSTEM.CNF  	| PS2 Config File 	|             	|
+| Name          	| Type            	| Version 	| Description 	|
+|---------------	|-----------------	|---------	|-------------	|
+| CNF           	| Folder          	| All     	|             	|
+| [Data](#Data) 	| Folder          	| All     	|             	|
+| NETGUI        	| Folder          	| All     	|             	|
+| SLES_516.97   	| Boot File       	| PAL     	|             	|
+| SYSTEM.CNF    	| PS2 Config File 	| All     	|             	|
 
 ## Data/
 | Name     	| Type   	| Description 	|
