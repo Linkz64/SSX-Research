@@ -41,6 +41,7 @@ Here is the structure made in programming languages for easy code implementation
 
 ## File Header
 Section 0 - Bytes[12]
+
 | Offset | Type   | Description                          | Key                 |
 |--------|--------|--------------------------------------|---------------------|
 | 0x00   | UInt32 | Unknown (Possibly version or magic)  |                     |
@@ -56,6 +57,7 @@ Section 0 - Bytes[12]
 
 ## Model Header
 Section 1 - Bytes[80]
+
 | Offset 	| Type      	| Description                                                	| Key              	| Rel                 	|
 |--------	|-----------	|------------------------------------------------------------	|------------------	|---------------------	|
 | 0x00   	| Bytes[16] 	| Name of Model (ASCII string with a max length of 16 bytes) 	| `mdlName`        	|                     	|
@@ -70,7 +72,7 @@ Section 1 - Bytes[80]
 | 0x30   	| UInt32    	| Offset of _Number list reference_                          	|                  	| `mdlDataOffset`     	|
 | 0x34   	| UInt32    	| Unknown (Unused/Filler)                                    	|                  	| `mdlDataOffset`     	|
 | 0x38   	| UInt32    	| Unknown (Unused/Filler)                                    	|                  	|                     	|
-| 0x3C   	| UInt16    	| Unknown (Unused/Filler)                                    	|                  	|                     	|
+| 0x3C   	| UInt16    	| Number Ref List Count                                     	|                  	|                     	|
 | 0x3E   	| UInt16    	| Count of **Skinning Data**                                 	|                  	|                     	|
 | 0x40   	| UInt16    	| Count of **Chunk Data**                                    	|                  	|                     	|
 | 0x42   	| UInt16    	| Count of **Bone Data**                                     	| `boneDataCount`  	|                     	|
@@ -92,7 +94,6 @@ Section 1 - Bytes[80]
 | Bone Data List       | Contains this `boneDataCount` many bones                 |
 | Bone Weight Headers  |                                                          |
 | Number List Ref      |                                                          |
-| Unknown List         |                                                          |
 | Unknown Data         |                                                          |
 | Internal Mesh Ref    |                                                          |
 | Internal Mesh        |                                                          |
@@ -131,6 +132,7 @@ If a slot has 0x00202020 it may be a placeholder
 
 ## Bone Data
 Size - Bytes[84]
+
 | Offset | Type      | Description                                                   | Key            |
 |--------|-----------|---------------------------------------------------------------|----------------|
 | 0x00   | Bytes[16] | Name of Bone (ASCII string with a maximum length of 16 bytes) | `boneName`     |
@@ -169,7 +171,8 @@ Boards use them so the character's boots stick on
 | 0x0C   | UInt32    | Unknown (Filler)               |     |     |
 
 
-## Group Main Header
+## Group Main
+### Group Main Header
 | Offset 	| Type   	| Description      	| Key 	| Rel 	|
 |--------	|--------	|------------------	|-----	|-----	|
 | 0x00   	| UInt32 	| ID               	|     	|     	|
@@ -178,37 +181,33 @@ Boards use them so the character's boots stick on
 |        	| UInt32 	| Sub Group Offset 	|     	|     	|
 |        	| UInt32 	| Sub Group Count  	|     	|     	|
 
-## Group Sub Group
+### Group Sub Group
 | Offset 	| Type   	| Description          	| Key 	| Rel 	|
 |--------	|--------	|----------------------	|-----	|-----	|
 | 0x00   	| UInt32 	| Mesh Group Offset 	|     	|     	|
 | 0x04   	| UInt32 	| Mesh Group Count     	|     	|     	|
 
-## Sub Sub Mesh Group
+### Sub Sub Mesh Group
 | Offset 	| Type   	| Description  	| Key 	| Rel 	|
 |--------	|--------	|--------------	|-----	|-----	|
 | 0x00   	| UInt32 	| Model Offset 	|     	|     	|
 | 0x04   	| UInt32 	| Unknown 1    	|     	|     	|
 |        	| UInt32 	| Unknown 2    	|     	|     	|
 
-
-
-
-<br>
-
-
-## Bone Weight Header
-| Offset | Type   | Description                | Key | Rel |
-|--------|--------|----------------------------|-----|-----|
-| 0x00   | UInt32 | Length of array/list       |     |     |
-| 0x04   | UInt32 | Offset to Bone weight list |     |     |
-| 0x08   | UInt32 | Unknown (Filler)           |     |     |
-
-
 <br>
 
 
 ## Bone Weight
+### Bone Weight Header
+| Offset | Type   | Description                | Key | Rel |
+|--------|--------|----------------------------|-----|-----|
+| 0x00   | UInt32 | Length of array/list       |     |     |
+| 0x04   | UInt32 | Offset to Bone weight list |     |     |
+
+
+<br>
+
+### Bone Weight
 | Offset | Type   | Description            | Key | Rel |
 |--------|--------|------------------------|-----|-----|
 | 0x00   | UInt16 | Bone weight (0 to 100) |     |     |
@@ -216,8 +215,21 @@ Boards use them so the character's boots stick on
 | 0x03   | UInt8  | Unknown                |     |     |
 
 
+## Number List Ref
+### Number List Ref Header
+| Offset | Type   | Description                 | Key | Rel |
+|--------|--------|-----------------------------|-----|-----|
+| 0x00   | UInt32 | Sub  Number List Ref Count  |     |     |
+| 0x04   | UInt32 | Sub  Number List Ref Offset |     |     |
+
+<br>
 
 
+### Sub Number List Ref 
+| Offset | Type   | Description            | Key | Rel |
+|--------|--------|------------------------|-----|-----|
+|        | UInt16 | Unknown                |     |     |
+|        | UInt16 | Unknown2               |     |     |
 
 <br>
 
@@ -308,6 +320,7 @@ Test
 
 The amount of triangle strip rows can be found inside Mesh Info Row 2 <br>
 _First type is assumed to be either UInt32 or Byte_
+
 | Type      | Description                             |
 |-----------|-----------------------------------------|
 | UInt32    | Count of vertices                       |
@@ -388,6 +401,26 @@ _mesh data continued:_
 | Float32   | Location X                    |
 | Float32   | Location Y                    |
 | Float32   | Location Z                    |
+
+## Shadow Vertex Block
+| Type      | Desc                                                              | Key |
+|-----------|-------------------------------------------------------------------|-----|
+| Bytes[16] | Header of Vertex Block (Hex: 00000000 0000803F 00000020 40404040) |     |
+| Bytes[12] | Unknown                                                           |     |
+| Byte      | Unknown                                                           |     |
+| Byte      | Prefix of Vertex count (0x80)                                     |     |
+| Byte      | Count of Vertices                                                 |     |
+| Byte      | Suffix of Vertex count (0x6C)                                     |     |
+| List      | List Vertex values                                                |     |
+
+**Vertex value:**
+
+| Type      | Description                   |
+|-----------|-------------------------------|
+| Float32   | Location X                    |
+| Float32   | Location Y                    |
+| Float32   | Location Z                    |
+| UInt32    | Unknown                       |
 
 
 

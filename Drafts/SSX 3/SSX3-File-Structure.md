@@ -123,6 +123,7 @@ Note: Currently based on the pal version
 *FREN.LOC = French<br>
 *GRMN.LOC = German<br>
 *SPAN.LOC = Spanish<br>
+
 | Name        	| Type 	| Version 	| Description 	|
 |-------------	|------	|---------	|-------------	|
 | CMNAMER.LOC 	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|

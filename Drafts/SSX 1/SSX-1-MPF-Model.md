@@ -31,6 +31,7 @@ Please note hex offsets are currently wrong
 
 ## File Header
 Section 0 - Bytes[12]
+
 | Offset | Type   | Description                          | Key                 |
 |--------|--------|--------------------------------------|---------------------|
 | 0x00   | UInt32 | Unknown (Possibly version or magic)  |                     |
@@ -41,6 +42,7 @@ Section 0 - Bytes[12]
 
 ## Model Header
 Section 1 - Bytes[128]
+
 | Offset | Type      | Description                                                | Key             | Rel                 |
 |--------|-----------|------------------------------------------------------------|-----------------|---------------------|
 | 0x00   | Bytes[16] | Name of model (ASCII string with a max length of 16 bytes) | `mdlName`       |                     |
