@@ -178,15 +178,15 @@ Note: Currently based on the pal version
 | SOUNDDBG.BIG 	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
 
 ## Data/Textures
-| Name         	| Type 	| Version 	| Description 	|
-|--------------	|------	|---------	|-------------	|
-| BACKS.SSH    	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
-| DBGIRAD.SSH  	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
-| CRWD.SSH     	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
-| DOT.SSH      	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
-| EFFECTS.SSH  	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
-| FE_1.SSH     	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
-| PARTICLE.SSH 	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
+| Name         	| Type                                                                                                   	| Version 	| Description                       	|
+|--------------	|--------------------------------------------------------------------------------------------------------	|---------	|-----------------------------------	|
+| BACKS.SSH    	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md) 	|         	|                                   	|
+| DBGIRAD.SSH  	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md) 	|         	|                                   	|
+| CRWD.SSH     	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md) 	|         	| Contains Crowd Textures           	|
+| DOT.SSH      	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md) 	|         	|                                   	|
+| EFFECTS.SSH  	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md) 	|         	|                                   	|
+| FE_1.SSH     	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md) 	|         	| Left Over Texture From SSX Tricky 	|
+| PARTICLE.SSH 	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md) 	|         	|                                   	|
 
 ## Data/UI
 | Name         	| Type        	| Version 	| Description 	|
