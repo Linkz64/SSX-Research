@@ -8,7 +8,7 @@
 | Name        	| Type            	| Description 	|
 |-------------	|-----------------	|-------------	|
 | CNF         	| Folder          	|             	|
-| [Data](#Data/)     	| Folder          	|             	|
+| [Data](#Data)     	| Folder          	|             	|
 | NETGUI      	| Folder          	|             	|
 | SLES_516.97 	| Boot File       	|             	|
 | SYSTEM.CNF  	| PS2 Config File 	|             	|
@@ -16,7 +16,7 @@
 ## Data/
 | Name     	| Type   	| Description 	|
 |----------	|--------	|-------------	|
-| [AUDIO](#Data/Audio)    	| Folder 	|             	|
+| [AUDIO](#DataAudio)    	| Folder 	|             	|
 | BE       	| Folder 	|             	|
 | CHAR     	| Folder 	|             	|
 | CONFIG   	| Folder 	|             	|
