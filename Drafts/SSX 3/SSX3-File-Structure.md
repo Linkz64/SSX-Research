@@ -60,7 +60,7 @@ Note: Currently based on the pal version
 | Name         	| Type 	| Version 	| Description 	|
 |--------------	|------	|---------	|-------------	|
 | BEHILOC.DBL  	| DBL  	|         	|             	|
-| CHARDB.DBL   	| DBL  	|         	|             	|
+| [CHARDB.DBL](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/SSX%203/SSX3-CharDB.md)   	| [Character DataBase](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/SSX%203/SSX3-CharDB.md)  	|         	|             	|
 | GLOBAL.DBL   	| DBL  	|         	|             	|
 | MODECHAL.DBL 	| DBL  	|         	|             	|
 | RWRDPS2.DAT  	| DAT  	|         	|             	|
@@ -107,12 +107,12 @@ Note: Currently based on the pal version
 |--------------	|------	|---------	|-------------	|
 | DEBUGFNT.SFN 	| SFN  	|         	|             	|
 | FEFONT.SFN   	| SFN  	|         	|             	|
-| FLOAD.SSH    	| SSH  	|         	|             	|
+| FLOAD.SSH    	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
 | FONT.SFN     	| SFN  	|         	|             	|
-| GLOAD.SSH    	| SSH  	|         	|             	|
+| GLOAD.SSH    	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
 | HUDFONT.SFN  	| SFN  	|         	|             	|
-| MENU.SSH     	| SSH  	|         	|             	|
-| SPLASH.SSH   	| SSH  	|         	|             	|
+| MENU.SSH     	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
+| SPLASH.SSH   	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
 
 ## Data/Icon
 | Name         	| Type 	| Version 	| Description 	|
@@ -122,30 +122,30 @@ Note: Currently based on the pal version
 ## Data/Locale
 | Name        	| Type 	| Version 	| Description 	|
 |-------------	|------	|---------	|-------------	|
-| CMNAMER.LOC 	| LOC  	|         	|             	|
-| CMNFREN.LOC 	| LOC  	|         	|             	|
-| CMNGRMN.LOC 	| LOC  	|         	|             	|
-| CMNSPAN.LOC 	| LOC  	|         	|             	|
-| CRAMER.LOC  	| LOC  	|         	|             	|
-| CRFREN.LOC  	| LOC  	|         	|             	|
-| CRGRMN.LOC  	| LOC  	|         	|             	|
-| CRGRMN.LOC  	| LOC  	|         	|             	|
-| FEAMER.LOC  	| LOC  	|         	|             	|
-| FEFREN.LOC  	| LOC  	|         	|             	|
-| FEGRMN.LOC  	| LOC  	|         	|             	|
-| FESPAN.LOC  	| LOC  	|         	|             	|
-| OVAMER.LOC  	| LOC  	|         	|             	|
-| OVFREN.LOC  	| LOC  	|         	|             	|
-| OVGRMN.LOC  	| LOC  	|         	|             	|
-| OVSPAN.LOC  	| LOC  	|         	|             	|
-| TOSFREN.LOC 	| LOC  	|         	|             	|
-| TOSGRMN.LOC 	| LOC  	|         	|             	|
-| TOSSPAN.LOC 	| LOC  	|         	|             	|
+| CMNAMER.LOC 	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| CMNFREN.LOC 	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| CMNGRMN.LOC 	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| CMNSPAN.LOC 	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| CRAMER.LOC  	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| CRFREN.LOC  	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| CRGRMN.LOC  	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| CRGRMN.LOC  	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| FEAMER.LOC  	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| FEFREN.LOC  	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| FEGRMN.LOC  	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| FESPAN.LOC  	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| OVAMER.LOC  	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| OVFREN.LOC  	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| OVGRMN.LOC  	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| OVSPAN.LOC  	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| TOSFREN.LOC 	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| TOSGRMN.LOC 	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
+| TOSSPAN.LOC 	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
 
 ## Data/Missions
 | Name         	| Type 	| Version 	| Description 	|
 |--------------	|------	|---------	|-------------	|
-| PLAYBACK.BIG  | BIG Archive  	|         	|             	|
+| PLAYBACK.BIG  | [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md)  	|         	|             	|
 
 ## Data/Modules
 
@@ -170,40 +170,40 @@ Note: Currently based on the pal version
 ## Data/Scripts
 | Name         	| Type        	| Version 	| Description 	|
 |--------------	|-------------	|---------	|-------------	|
-| ANIMDBG.BIG  	| BIG Archive 	|         	|             	|
-| SCDAT.BIG    	| BIG Archive 	|         	|             	|
-| SOUNDDBG.BIG 	| BIG Archive 	|         	|             	|
+| ANIMDBG.BIG  	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| SCDAT.BIG    	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| SOUNDDBG.BIG 	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
 
 ## Data/Textures
 | Name         	| Type 	| Version 	| Description 	|
 |--------------	|------	|---------	|-------------	|
-| BACKS.SSH    	| SSH  	|         	|             	|
-| DBGIRAD.SSH  	| SSH  	|         	|             	|
-| CRWD.SSH     	| SSH  	|         	|             	|
-| DOT.SSH      	| SSH  	|         	|             	|
-| EFFECTS.SSH  	| SSH  	|         	|             	|
-| FE_1.SSH     	| SSH  	|         	|             	|
-| PARTICLE.SSH 	| SSH  	|         	|             	|
+| BACKS.SSH    	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
+| DBGIRAD.SSH  	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
+| CRWD.SSH     	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
+| DOT.SSH      	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
+| EFFECTS.SSH  	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
+| FE_1.SSH     	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
+| PARTICLE.SSH 	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)  	|         	|             	|
 
 ## Data/UI
 | Name         	| Type        	| Version 	| Description 	|
 |--------------	|-------------	|---------	|-------------	|
-| CHARPIC.BIG  	| BIG Archive 	|         	|             	|
-| COURSPIC.BIG 	| BIG Archive 	|         	|             	|
+| CHARPIC.BIG  	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| COURSPIC.BIG 	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
 | FE.LUI       	| LUI         	|         	|             	|
-| FE_1.SSH     	| SSH         	|         	|             	|
+| FE_1.SSH     	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)         	|         	|             	|
 | FL.LUI       	| LUI         	|         	|             	|
-| FL_1.SSH     	| SSH         	|         	|             	|
+| FL_1.SSH     	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)         	|         	|             	|
 | GL.LUI       	| LUI         	|         	|             	|
-| GL_1.SSH     	| SSH         	|         	|             	|
-| MAPGFX.BIG   	| BIG Archive 	|         	|             	|
+| GL_1.SSH     	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)         	|         	|             	|
+| MAPGFX.BIG   	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
 | OV.LUI       	| LUI         	|         	|             	|
-| OV_1.SSH     	| SSH         	|         	|             	|
+| OV_1.SSH     	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)         	|         	|             	|
 | SU.LUI       	| LUI         	|         	|             	|
-| SU_1.SSH     	| SSH         	|         	|             	|
+| SU_1.SSH     	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)         	|         	|             	|
 
 ## Data/Worlds
 | Name    	| Type        	| Version 	| Description 	|
 |---------	|-------------	|---------	|-------------	|
-| BAM.BIG 	| BIG Archive 	|         	|             	|
+| BAM.BIG 	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
 | IRR.DAT 	| DAT         	|         	|             	|
