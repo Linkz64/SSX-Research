@@ -102,7 +102,6 @@ Note: Currently based on the pal version
 | WATRIG.ADL   	| ADL         	|         	|             	|
 
 ## Data/Fonts
-
 | Name         	| Type 	| Version 	| Description 	|
 |--------------	|------	|---------	|-------------	|
 | DEBUGFNT.SFN 	| SFN  	|         	|             	|
@@ -120,6 +119,10 @@ Note: Currently based on the pal version
 | SSX1.ICO  	| ICO  	|         	|             	|
 
 ## Data/Locale
+*AMER.LOC = English
+*FREN.LOC = French
+*GRMN.LOC = German
+*SPAN.LOC = Spanish
 | Name        	| Type 	| Version 	| Description 	|
 |-------------	|------	|---------	|-------------	|
 | CMNAMER.LOC 	| [LOC Language File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/Loc-File.md)  	|         	|             	|
