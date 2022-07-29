@@ -35,10 +35,10 @@
 
 | Name         	| Type        	| Version 	| Description 	|
 |--------------	|-------------	|---------	|-------------	|
-| AUDIO.BIG    	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| ENGLISH.BIG  	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| FRENCH.BIG   	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| GERMAN.BIG   	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| AUDIO.BIG    	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| ENGLISH.BIG  	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| FRENCH.BIG   	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| GERMAN.BIG   	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
 | GRNT_AI.BNK  	| BNK         	|         	|             	|
 | GRNT_ARI.BNK 	| BNK         	|         	|             	|
 | GRNT_ARI.BNK 	| BNK         	|         	|             	|
@@ -50,10 +50,10 @@
 | GRNT_PSY.BNK 	| BNK         	|         	|             	|
 | GRNT_VIG.BNK 	| BNK         	|         	|             	|
 | GRNT_ZOE.BNK 	| BNK         	|         	|             	|
-| MUSIC.BIG    	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| MUSIC2.BIG   	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| SPANISH.BIG  	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| SPEECH.BIG   	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| MUSIC.BIG    	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| MUSIC2.BIG   	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| SPANISH.BIG  	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| SPEECH.BIG   	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
 
 ## Data/Be
 | Name         	| Type 	| Version 	| Description 	|
@@ -68,18 +68,18 @@
 ## Data/Char
 | Name         	| Type        	| Version 	| Description 	|
 |--------------	|-------------	|---------	|-------------	|
-| ALLEGTXP.BIG 	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| ANM.BIG      	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| ALLEGTXP.BIG 	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| ANM.BIG      	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
 | BOLTPS2.DAT  	| DAT         	|         	|             	|
-| ELISETXP.BIG 	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| GRIFFTXP.BIG 	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| KAORITXP.BIG 	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| MACTXP.BIG   	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| MDLPS2.BIG   	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| MOBYTXP.BIG  	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| NATETXP.BIG  	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| OTHERTXP.BIG 	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| PSYMOTXP.BIG 	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| RWRDPS2.BIG  	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| VIGGOTXP.BIG 	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| ZOETXP.BIG   	| [BIG Archive](#https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| ELISETXP.BIG 	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| GRIFFTXP.BIG 	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| KAORITXP.BIG 	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| MACTXP.BIG   	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| MDLPS2.BIG   	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| MOBYTXP.BIG  	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| NATETXP.BIG  	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| OTHERTXP.BIG 	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| PSYMOTXP.BIG 	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| RWRDPS2.BIG  	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| VIGGOTXP.BIG 	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| ZOETXP.BIG   	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
