@@ -54,7 +54,24 @@ Note: Currently based on the pal version
 | MUSIC.BIG    	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
 | MUSIC2.BIG   	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
 | SPANISH.BIG  	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
-| SPEECH.BIG   	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+| SPEECH.BIG   	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	| 
+
+### Data/Audio/Audio.BIG
+
+### Data/Audio/ENGLISH.BIG
+
+### Data/Audio/FRENCH.BIG
+
+### Data/Audio/GERMAN.BIG
+
+### Data/Audio/MUSIC.BIG
+
+### Data/Audio/MUSIC2.BIG
+
+### Data/Audio/SPANISH.BIG
+
+### Data/Audio/SPEECH.BIG
+
 
 ## Data/Be
 | Name         	| Type 	| Version 	| Description 	|
@@ -85,6 +102,32 @@ Note: Currently based on the pal version
 | VIGGOTXP.BIG 	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
 | ZOETXP.BIG   	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
 
+### Data/Char/ALLEGTXP.big
+
+### Data/Char/ELISETXP.big
+
+### Data/Char/GRIFFTXP.big
+
+### Data/Char/KAORITXP.big
+
+### Data/Char/MACTXP.big
+
+### Data/Char/MDLPS2.big
+
+### Data/Char/MOBYTXP.big
+
+### Data/Char/NATETXP.big
+
+### Data/Char/OTHERTXP.big
+
+### Data/Char/PSYMOTXP.big
+
+### Data/Char/RWRDPS2.big
+
+### Data/Char/VIGGOTXP.big
+
+### Data/Char/ZOETXP.big
+
 ## Data/Config 
 | Name         	| Type        	| Version 	| Description 	|
 |--------------	|-------------	|---------	|-------------	|
@@ -100,6 +143,8 @@ Note: Currently based on the pal version
 | SPEECH.INF   	| INF         	|         	|             	|
 | WATRIG.ADB   	| ADB         	|         	|             	|
 | WATRIG.ADL   	| ADL         	|         	|             	|
+
+### Data/Config/SLESOVF.big
 
 ## Data/Fonts
 | Name         	| Type 	| Version 	| Description 	|
@@ -151,6 +196,9 @@ Note: Currently based on the pal version
 |--------------	|------	|---------	|-------------	|
 | PLAYBACK.BIG  | [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md)  	|         	|             	|
 
+### Data/Missions/PLAYBACK.big
+
+
 ## Data/Modules
 
 ## Data/Movie
@@ -177,6 +225,12 @@ Note: Currently based on the pal version
 | ANIMDBG.BIG  	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
 | SCDAT.BIG    	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
 | SOUNDDBG.BIG 	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
+
+### Data/Scripts/ANIMDBG.big
+
+### Data/Scripts/SCDAT.big
+
+### Data/Scripts/SOUNDDBG.big
 
 ## Data/Textures
 | Name         	| Type                                                                                                   	| Version 	| Description                       	|
@@ -206,8 +260,16 @@ Note: Currently based on the pal version
 | SU.LUI       	| LUI         	|         	|             	|
 | SU_1.SSH     	| [SSH Image File](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/SSH-Texture.md)         	|         	|             	|
 
+### Data/UI/CHARPIC.big
+
+### Data/UI/COURSPIC.big
+
+### Data/UI/MAPGFX.big
+
 ## Data/Worlds
 | Name    	| Type        	| Version 	| Description 	|
 |---------	|-------------	|---------	|-------------	|
 | BAM.BIG 	| [BIG Archive](https://github.com/Linkz64/SSX-Research/blob/main/Drafts/File%20Types/BIG-Archives.md) 	|         	|             	|
 | IRR.DAT 	| DAT         	|         	|             	|
+
+### Data/Worlds/BAM.big
