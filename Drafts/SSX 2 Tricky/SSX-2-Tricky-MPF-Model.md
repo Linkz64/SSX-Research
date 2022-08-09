@@ -68,12 +68,12 @@ Section 1 - Bytes[80]
 | 0x20   	| UInt32    	| Offset of **Mesh Group Offset** (Chunk offsets)            	|                  	| `mdlDataOffset`     	|
 | 0x24   	| UInt32    	| Offset of **Mesh Data**                                    	|                  	| `mdlDataOffset`     	|
 | 0x28   	| UInt32    	| Offset Of **Material Data**?                               	|                  	|                     	|
-| 0x2C   	| UInt32    	| Offset of **Skinning Data**                                	|                  	| `mdlDataOffset`     	|
-| 0x30   	| UInt32    	| Offset of _Number list reference_                          	|                  	| `mdlDataOffset`     	|
+| 0x2C   	| UInt32    	| Offset of _Number list reference_                            	|                  	| `mdlDataOffset`     	|
+| 0x30   	| UInt32    	| Offset of **Skinning Data**                                	|                  	| `mdlDataOffset`     	|
 | 0x34   	| UInt32    	| Unknown (Unused/Filler)                                    	|                  	| `mdlDataOffset`     	|
 | 0x38   	| UInt32    	| Unknown (Unused/Filler)                                    	|                  	|                     	|
-| 0x3C   	| UInt16    	| Number Ref List Count                                     	|                  	|                     	|
-| 0x3E   	| UInt16    	| Count of **Skinning Data**                                 	|                  	|                     	|
+| 0x3C   	| UInt16    	| Count of **Skinning Data**                                 	|                  	|                     	|
+| 0x3E   	| UInt16    	| Number Ref List Count                                         |                  	|                     	|
 | 0x40   	| UInt16    	| Count of **Chunk Data**                                    	|                  	|                     	|
 | 0x42   	| UInt16    	| Count of **Bone Data**                                     	| `boneDataCount`  	|                     	|
 | 0x44   	| UInt16    	| Count of **Material Data**                                 	| `matDataCount`   	|                     	|
@@ -203,7 +203,7 @@ Boards use them so the character's boots stick on
 |--------|--------|----------------------------|-----|-----|
 | 0x00   | UInt32 | Length of array/list       |     |     |
 | 0x04   | UInt32 | Offset to Bone weight list |     |     |
-
+| 0x08   | UInt32 | Unknown                    |     |     |
 
 <br>
 
