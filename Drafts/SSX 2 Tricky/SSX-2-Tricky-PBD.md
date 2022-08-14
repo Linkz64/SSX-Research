@@ -6,6 +6,7 @@
 
 ## Patch 
 
+
 | Offset 	| Type    	| Description    	|
 |--------	|---------	|----------------	|
 |        	| Vertex4 	| Shading Point  	|
@@ -45,12 +46,19 @@
 
 ### Equations
 
-| Decode                                           	| Encode 	|
-|--------------------------------------------------	|--------	|
-| EQ1 (A,B) = Raw B <br> A + B/3                	|        	|
-| EQ2 (RawA,B,C) = Raw C <br> RawA + (B+C)/3     	|        	|
-| EQ3 (A, B, C, D) = Raw D <br> A + (B+C+D/3)/3  	|        	|
-| EQ4 (A,B,C,D) = Raw D <br> A+B+C+D             	|        	|
+__Speical Thanks For Solving the Equations__ <br>
+-Archy/GlitcherOG and his Garbage Program <br>
+-Linkz <br>
+-Kris <br>
+
+| Input                     	| Equations            	|
+|---------------------------	|----------------------	|
+| EQ1 (A,B) = Raw B         	| A + B/3              	|
+| EQ2 (RawA,B,C) = Raw C    	| RawA+(B+C)/3         	|
+| EQ3 (A, B, C, D) = Raw D  	| A+(B+C+D/3)/3        	|
+| EQ4 (A,B,C,D) = Raw D     	| A+B+C+D              	|
+| EQ5 (RawA,A,B,C,D)= Raw D 	| RawA+(A+B+(C+D)/3)/3 	|
+| EQ6 (RawA,B,C,D,E)= Raw E 	| RawA+(B+C+D+E)/3     	|
 
 ### Encoding
 | Row\Column 	| Column 1                    	| Column 2                    	| Column 3                  	| Column 4                    	|
