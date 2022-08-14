@@ -45,25 +45,25 @@
 |        	| Int32   	| Unknown        	|
 
 ### Equations
-
+#### Encoding
 __Speical Thanks For Solving the Equations__ <br>
 -Archy/GlitcherOG and his Garbage Program <br>
 -Linkz <br>
 -Kris <br>
 
-| Input                     	| Equations            	|
-|---------------------------	|----------------------	|
-| EQ1 (A,B) = Raw B         	| A + B/3              	|
-| EQ2 (RawA,B,C) = Raw C    	| RawA+(B+C)/3         	|
-| EQ3 (A, B, C, D) = Raw D  	| A+(B+C+D/3)/3        	|
-| EQ4 (A,B,C,D) = Raw D     	| A+B+C+D              	|
-| EQ5 (RawA,A,B,C,D)= Raw D 	| RawA+(A+B+(C+D)/3)/3 	|
-| EQ6 (RawA,B,C,D,E)= Raw E 	| RawA+(B+C+D+E)/3     	|
+| Input                        	| Equations                   	|
+|------------------------------	|-----------------------------	|
+| EQ1 (A,B) = Raw B            	| A + B/3                     	|
+| EQ2 (RawA,B,C) = Raw C       	| RawA+(B+C)/3                	|
+| EQ3 (A, B, C, D) = Raw D     	| A+(B+C+D/3)/3               	|
+| EQ4 (A,B,C,D) = Raw D        	| A+B+C+D                     	|
+| EQ5 (RawA,A,B,C,D)= Raw D    	| RawA+(A+B+(C+D)/3)/3        	|
+| EQ6 (RawA,B,C,D,E)= Raw E    	| RawA+(B+C+D+E)/3            	|
+| EQ7 (All The Points) = Raw A 	| Add All The Points Together 	|
 
-### Encoding
 | Row\Column 	| Column 1                    	| Column 2                    	| Column 3                  	| Column 4                    	|
 |------------	|-----------------------------	|-----------------------------	|---------------------------	|-----------------------------	|
 | Row 1      	| No Equation Needed          	| EQ1(R1C1,R1C2)              	| EQ2(Raw R1C2, R1C2, R1C3) 	| EQ4(R1C1, R1C2, R1C3, R1C4) 	|
-| Row 2      	| EQ1(R1C1,R2C1)              	| EQ3(R1C1, R2C1, R1C2, R2C2) 	|                           	|                             	|
-| Row 3      	| EQ2(Raw R2C1, R2C1, R3C1)   	|                             	|                           	|                             	|
-| Row 4      	| EQ4(R1C1, R2C1, R3C1, R4C1) 	|                             	|                           	|                             	|
+| Row 2      	| EQ1(R1C1,R2C1)              	| EQ3(R1C1, R2C1, R1C2, R2C2) 	| EQ5                       	| EQ6                         	|
+| Row 3      	| EQ2(Raw R2C1, R2C1, R3C1)   	| EQ5                         	|                           	|                             	|
+| Row 4      	| EQ4(R1C1, R2C1, R3C1, R4C1) 	| EQ6                         	|                           	| EQ7(All the points)         	|
