@@ -1,4 +1,17 @@
-struct aip{ // FILE: .AIP    | Contents: Start points, Respawn locations and/or Bot path location.
+/*
+
+aip - Start points, Respawn locations and/or Bot path points.
+wdf - Instances, Patches, etc
+wdr - Prop Models
+wds - Unknown
+wdx - Splines
+wfx - Collision Models
+mdr - sky/background Models
+
+*/
+
+
+struct aip{ // FILE: .AIP
 
     struct aip_Header{
     
@@ -49,7 +62,7 @@ struct aip{ // FILE: .AIP    | Contents: Start points, Respawn locations and/or 
 
 
 
-struct wdf{ // FILE: .WDF    | CONTENTS: Instances, Patches
+struct wdf{ // FILE: .WDF
     
     struct wdf_Header{ // for every instance and patches
     
