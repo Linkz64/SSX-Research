@@ -32,21 +32,21 @@ struct aip_sop{ // FILE: .AIP and .SOP
 	};
 	
 	struct unk1_unk2{ // unk1 and unk2 are the same I think
-	    Float32       unk;
-	    UInt32        unkA_Count;
-	    UInt32        unkB_Count;
+	    Float32 unk;
+	    UInt32  unkA_Count;
+	    UInt32  unkB_Count;
 	
-	    Float32 3     unkPos1; // main  point
-	    Float32 3     unkPos2; // extra point
-	    Float32 3     unkPos3; // extra point
+	    Float32 unkPos1[3]; // main  point
+	    Float32 unkPos2[3]; // extra point
+	    Float32 unkPos3[3]; // extra point
 	
 	    unkA[
-	        Float32 4 unkA_1;
+	        Float32 unkA_1[4];
 	    ]
 	
 	    unkB[
-	        UInt32  2 unkB_1;
-	        Float32 2 unkB_2;
+	        UInt32  unkB_1[2];
+	        Float32 unkB_2[2];
 	    ]
 	};
 	
@@ -60,27 +60,81 @@ struct aip_sop{ // FILE: .AIP and .SOP
 
 
 
+
 struct ltg{ // FILE: .LTG
 
+	struct ltgFile{
+		header     header;
+		offsetList offsetList;
+		bboxData   bboxData;
+	};
+
+
+	struct boundingBox{
+		Float32 bounds[3]; * 2   // 2x Vector3's
+		Float32 boundsOrigin[3]; // Middle point of box
+	};
+
+
 	struct header{
-		bytes[4] Unknown;
-		Float32 worldBounds; * 2 // World bounding box (You respawn when you're outside it)
-		Float32 worldBoundsOrigin; // Middle point of box
-		Float32 Unknown; // 10000.0
+		UInt8   NULL; // or 0
+		UInt8   ColdFusionVersion;
+		UInt8   ColdFusionRevision;
+		bool    endianBig; // or byteSwap | .ltg = little endian (False/0), .btg = big endian (True/1)
+		Float32 worldBounds[3]; * 2 // 2x Vector3's | World bounding box (You respawn when you're outside it)
+		Float32 worldBoundsOrigin[3]; // Middle point of box
+		Float32 gridBoundsSize; // = 10000.0
 		UInt32	offsetCount;
 		UInt32	offsetListCount;
 		UInt32	Unknown;
 		UInt32	Unknown;
 		UInt32	Unknown;
-		Float32 Unknown; // 2500.0
-		UInt32	Unknown;
-		UInt32	Unknown;
-		UInt32	offsetListOffset;
-		UInt32	offsetListEnd; // offset of where it ends (relative to offset 0x00)
+		Float32 gridBoxSize;  // = 2500.0
+		UInt32	Unknown;      // = 4      | Row/Column count
+		UInt32	gridBoxCount; // or gridResolution | = 16
+		UInt32	offsetListOffset; // = 84
+		UInt32	offsetListEnd; // offset of where list data ends (relative to offset 0x00)
 	};
 
 	struct offsetList{ * offsetListCount
 		UInt32 unkOffset; * offsetCount
-	}
-	
+	};
+
+	struct bboxData{
+		struct mainBounds{
+			boundingBox mainBbox;
+			UInt16 Unknown;
+			UInt16 Unknown;
+			UInt16 Unknown;
+			UInt16 Unknown;
+			UInt32 Unknown;
+			UInt32 Unknown;
+			UInt32 Unknown;
+			UInt32 Unknown;
+			UInt32 Unknown;
+			UInt32 Unknown;
+			UInt32 Unknown;
+			UInt32 Unknown;
+		};
+		struct gridBounds{
+			boundingBox gridBbox;
+			UInt16 Unknown;
+			UInt16 Unknown;
+			UInt16 Unknown;
+			UInt16 Unknown;
+			UInt16 Unknown;
+			UInt16 Unknown;
+			UInt32 Unknown;
+			UInt32 Unknown;
+			UInt32 Unknown;
+			UInt32 Unknown;
+			UInt32 Unknown;
+			UInt32 Unknown;
+			UInt32 Unknown;
+		};
+
+		struct extraData{
+			bytes[?] Unknown; // contains indices for patches and maybe instances
+		};
+	};
 };
