@@ -7,7 +7,7 @@ map         - Debug info
 sop         - (For showoff mode) start points, respawn points, checkpoints.
 pbd/nbd/xbd - Patches, Instances, Lights, etc
 ssf/xsf/gsf - Collision Models
-ssh/xbd/gsh - Textures
+ssh/xsh/gsh - Textures
 
 */
 
@@ -116,7 +116,7 @@ struct ltg{ // FILE: .LTG
 			UInt32 Unknown;
 			UInt32 Unknown;
 		};
-		struct gridBounds{
+		struct gridBounds{ * gridBoxCount
 			boundingBox gridBbox;
 			UInt16 Unknown;
 			UInt16 Unknown;
