@@ -75,66 +75,67 @@ struct ltg{ // FILE: .LTG
 		Float32 boundsOrigin[3]; // Middle point of box
 	};
 
+    struct header{
+        UInt8   NULL; // or 0
+        UInt8   ColdFusionVersion;
+        UInt8   ColdFusionRevision;
+        UInt8   endianBig; // or byteSwap | .ltg = little endian (False/0), .btg = big endian (True/1)
 
-	struct header{
-		UInt8   NULL; // or 0
-		UInt8   ColdFusionVersion;
-		UInt8   ColdFusionRevision;
-		bool    endianBig; // or byteSwap | .ltg = little endian (False/0), .btg = big endian (True/1)
-		Float32 worldBounds[3]; * 2 // 2x Vector3's | World bounding box (You respawn when you're outside it)
-		Float32 worldBoundsOrigin[3]; // Middle point of box
-		Float32 gridBoundsSize; // = 10000.0
-		UInt32	offsetCount;
-		UInt32	offsetListCount;
-		UInt32	Unknown;
-		UInt32	Unknown;
-		UInt32	Unknown;
-		Float32 gridBoxSize;  // = 2500.0
-		UInt32	Unknown;      // = 4      | Row/Column count
-		UInt32	gridBoxCount; // or gridResolution | = 16
-		UInt32	offsetListOffset; // = 84
-		UInt32	offsetListEnd; // offset of where list data ends (relative to offset 0x00)
-	};
+        Float32 worldBounds[3]; * 2 // 2x Vector3's | World bounding box (You respawn when you're outside it)
+        Float32 worldBoundsOrigin[3]; // Middle point of box
+        
+        Float32 gridBoundsSize;   // @ 0x28    = 10000.0
+        UInt32  offsetCount;      // @ 0x2C
+        UInt32  offsetListCount;  // @ 0x30
+        UInt32  Unknown;          // @ 0x34
+        UInt32  mainBoundsCount;  // @ 0x38
+        UInt32  Unknown;          // @ 0x3C
+        Float32 gridBoxSize;      // @ 0x40    = 2500.0
+        UInt32  Unknown;          // @ 0x44    = 4      | Row/Column count
+        UInt32  gridBoxCount;     // @ 0x48    or gridResolution | = 16
+        UInt32  offsetListOffset; // @ 0x4C    = 84
+        UInt32  offsetListEnd;    // @ 0x50    offset of where list data ends (relative to offset 0x00)
+    };
 
-	struct offsetList{ * offsetListCount
-		UInt32 unkOffset; * offsetCount
-	};
+    struct offsetList{ * offsetListCount
+        UInt32 unkOffset; * offsetCount
+    };
 
-	struct bboxData{
-		struct mainBounds{
-			boundingBox mainBbox;
-			UInt16 Unknown;
-			UInt16 Unknown;
-			UInt16 Unknown;
-			UInt16 Unknown;
-			UInt32 Unknown;
-			UInt32 Unknown;
-			UInt32 Unknown;
-			UInt32 Unknown;
-			UInt32 Unknown;
-			UInt32 Unknown;
-			UInt32 Unknown;
-			UInt32 Unknown;
-		};
-		struct gridBounds{ * gridBoxCount
-			boundingBox gridBbox;
-			UInt16 Unknown;
-			UInt16 Unknown;
-			UInt16 Unknown;
-			UInt16 Unknown;
-			UInt16 Unknown;
-			UInt16 Unknown;
-			UInt32 Unknown;
-			UInt32 Unknown;
-			UInt32 Unknown;
-			UInt32 Unknown;
-			UInt32 Unknown;
-			UInt32 Unknown;
-			UInt32 Unknown;
-		};
+    struct bboxData{
+        struct mainBounds{
+            boundingBox mainBbox;
+            UInt16 Unknown; // Total Patch count?
+            UInt16 Unknown; // Total Instance count?
+            UInt16 Unknown;
+            UInt16 Unknown;
+            UInt32 Unknown;
+            UInt32 Unknown;
+            UInt32 Unknown;
+            UInt32 Unknown;
+            UInt32 Unknown;
+            UInt32 Unknown;
+            UInt32 Unknown;
+            UInt32 Unknown;
+        };
+        struct gridBounds{
+            boundingBox gridBbox;
+            UInt16 patchCount;      // Patch count
+            UInt16 instanceCount;   // Instance count
+            UInt16 Unknown;         // Instance/Model/Collision count?
+            UInt16 splineCount;     // Spline count
+            UInt16 lightCount;      // Light count
+            UInt16 Unknown;         // Unknown
+            UInt32 particleCount;   // Particle count (2 UInt16's?)
+            UInt32 Unknown;
+            UInt32 Unknown;
+            UInt32 Unknown;
+            UInt32 Unknown;
+            UInt32 Unknown;
+            UInt32 Unknown;
+        };
 
-		struct extraData{
-			bytes[?] Unknown; // contains indices for patches and maybe instances
-		};
-	};
+        struct extraData{
+            bytes[?] Unknown; // contains indices for patches and maybe instances
+        };
+    };
 };
