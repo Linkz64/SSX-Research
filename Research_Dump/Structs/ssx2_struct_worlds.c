@@ -66,7 +66,7 @@ struct ltg{ // FILE: .LTG
     struct ltgFile{
         header     header;
         offsetList offsetList;
-        bboxData   bboxData;
+        bboxData   bboxData; * pointerCount
     };
 
 
@@ -80,62 +80,65 @@ struct ltg{ // FILE: .LTG
         UInt8   NULL; // or 0
         UInt8   ColdFusionVersion;
         UInt8   ColdFusionRevision;
-        UInt8   endianBig; // or byteSwap | .ltg = little endian (False/0), .btg = big endian (True/1)
+        UInt8   endianess; // endianBig or byteOrder or byteSwap | .ltg = little endian (False/0), .btg = big endian (True/1)
 
-        Float32 worldBounds[3]; * 2 // 2x Vector3's | World bounding box (You respawn when you're outside it)
-        Float32 worldBoundsOrigin[3]; // Middle point of box
+        boundingBox worldBounds // 2x Vector3's | World bounding box (Also acts as out of bounds box; makes you respawn when you're outside of it)
         
-        Float32 gridBoundsSize;    // @ 0x28    = 10000.0
-        UInt32  pointerCount;      // @ 0x2C
-        UInt32  pointerListCount;  // @ 0x30
-        UInt32  Unknown;           // @ 0x34
-        UInt32  mainBoundsCount;   // @ 0x38
-        UInt32  Unknown;           // @ 0x3C
-        Float32 gridBoxSize;       // @ 0x40    = 2500.0
-        UInt32  Unknown;           // @ 0x44    = 4               | Row/Column count
-        UInt32  gridBoxCount;      // @ 0x48    or gridResolution | = 16
-        UInt32  pointerListOffset; // @ 0x4C    = 84
-        UInt32  pointerListEnd;    // @ 0x50    offset of where list data ends (relative to offset 0x00) or list byte size or where box data begins
+        Float32 mainBboxSize;        // @ 0x28    = 10000.0
+        UInt32  pointerCount;        // @ 0x2C    number of mainBbox placed along X axis (horizontally)
+        UInt32  pointerListCount;    // @ 0x30    number of mainBbox placed along Y axis
+        UInt32  totalGridCount;      // @ 0x34    pointerCount * pointerListCount
+        UInt32  mainBboxCount;       // @ 0x38    number of grids/mainBbox used
+        UInt32  mainBboxEmptyCount;  // @ 0x3C    number of empty grids where none were spawned/processed
+
+        Float32 nodeBoxSize;         // @ 0x40    = 2500.0
+        UInt32  nodeBoxWidth;        // @ 0x44    = 4       row or column count
+        UInt32  nodeBoxCount;        // @ 0x48    = 16
+
+        UInt32  pointerListOffset;   // @ 0x4C    = 84
+        UInt32  bboxDataListOffset;  // @ 0x50    offset of where box data begins
     };
 
     struct offsetList{ * pointerListCount
         UInt32 unkOffset; * pointerCount
     };
 
-    struct bboxData{ // ALL OFFSETS INSIDE ARE RELATIVE TO THE START OF BBOXDATA
-        struct mainBounds{
-            boundingBox mainBbox; // 9 floats
-            UInt16 totalLightCount;    // Total Patch count
-            UInt16 totalInstanceCount; // Total Instance count
-            UInt16 Unknown;
-            UInt16 totalLightCount;    // Total Light count
-            UInt16 Unknown;            // Total extraThing count
-            UInt16 Unknown;
-            UInt32 Unknown; // offet to skip 9 floats either for gridBounds or mainBounds to get to counts and offsets
-            UInt32 Unknown; // offset to first gridBounds? or mainBounds byte size
-            UInt32 Unknown; // index list offset (relative to self)
+    struct bboxData{ // All offsets inside are relative to start of individual bboxData
+        struct mainBbox{
+            boundingBox mainBbox;      // 3 Vector3's (9 floats)
+            
+            UInt16 totalPatchCount;            // Total Patch count
+            UInt16 totalInstanceCount;         // Total Instance count
+            UInt16 unknown;
+            UInt16 totalLightCount;            // Total Light count
+            UInt16 totallightsCrossingCount;   // Total Lights crossing count. Whatever that means
+            UInt16 totalParticleInstanceCount;
+            UInt32 Unknown; // number of elements?
+            UInt32 Unknown; // offset to first nodeBbox? or mainBbox byte size
+            UInt32 Unknown; // index list offset
             UInt32 Unknown;
             UInt32 Unknown;
             UInt32 Unknown;
-            UInt32 Unknown; // offset leads to list of "00000000 01000000"
+            UInt32 Unknown; // offset leads to list of extraThing lists
             UInt32 Unknown;
         };
-        struct gridBounds{
-            boundingBox gridBbox;   // 9 floats
-            UInt16 patchCount;      // Patch count
-            UInt16 instanceCount;   // Instance count
-            UInt16 Unknown;         // Instance/Model/Collision count?
-            UInt16 splineCount;     // Spline count
-            UInt16 lightCount;      // Light count
-            UInt16 extraThingCount; // unused?        (usually 2 but sometimes higher, there's nothing extra to be seen in game)
-            UInt16 particleCount;   // Particle count (a single UInt32?)
-            UInt16 Unknown;         // unused?        (usually 0)
-            UInt32 patchIndexListOffset;      // offset leads to it's own index list
-            UInt32 instanceIndexListOffset;
-            UInt32 UnknownOffset;
-            UInt32 lightIndexListOffset;
-            UInt32 extraThingIndexListOffset;
-            UInt32 UnknownOffset;
+        struct nodeBbox{
+            boundingBox nodeBbox;       // 3 Vector3's (9 floats)
+
+            UInt16 patchCount;          // Patch count
+            UInt16 instanceCount;       // Instance count
+            UInt16 instAndGemCount;     // Models/Instances & Gems apparently
+            UInt16 splineCount;         // Spline count
+            UInt16 lightCount;          // Light count
+            UInt16 lightsCrossingCount; // Lights crossing count
+            UInt32 particleCount;       // Particle model count
+
+            UInt32 patchesOffset;        // offset leads to it's own index list
+            UInt32 instancesOffset;      // or models
+            UInt32 splinesOffset;
+            UInt32 lightsOffset;
+            UInt32 lightsCrossingOffset; // offset of it's own extraThing list, usually hex 00000000 01000000
+            UInt32 particleModelsOffset;
         };
 
         struct indexList{
