@@ -39,7 +39,7 @@
 |        	| Int32   	| Patch Style    	|
 |        	| Int32   	| Unknown        	|
 |        	| Int16   	| Texture ID     	|
-|        	| Int16   	| Unknown        	|
+|        	| Int16   	| Lightmap ID     |
 |        	| Int32   	| Unknown        	|
 |        	| Int32   	| Unknown        	|
 |        	| Int32   	| Unknown        	|
